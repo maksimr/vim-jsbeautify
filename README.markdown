@@ -4,10 +4,20 @@ vim-jsbeautify.vim
 Installation
 ------------
 
+You must have installed one of javascript interpretators nodejs or v8
+
+If you use vundle simple put this string in your `vimrc`:
+
+```vim
+
+  Bundle 'maksimr/jsbeautify'
+
+```
+
 Configuration
 -------------
 
-configurate jsbeautify
+Configuration jsbeautify
 
 ```vim
   ".vimrc
@@ -15,8 +25,8 @@ configurate jsbeautify
   let g:jsbeautify = {"indent_size": 4, "indent_char": "\t"}
 
 ```
-You can choose javascript interpretator nodejs or v8 (by default nodejs)
-and set command in you vimrc
+
+Run on v8
 
 ```vim
   ".vimrc
@@ -27,4 +37,17 @@ and set command in you vimrc
   let g:jsbeautify_engine = "v8-alias"
 
 ```
+
+Usage
+
+```vim
+  ".vimrc
+
+  map <c-f> :call JsBeautify()<cr>
+
+```
+
+Function JsBeautify take two parameters first `start line` second `end line`,
+by default `start line` equal '0' and `end line` equal '$'
+
 (version: 0.1)

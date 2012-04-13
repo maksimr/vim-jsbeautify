@@ -21,7 +21,7 @@ let g:jsbeautify_engine = "node"
 fun! s:mixin(gconf,uconf)
   if type(a:gconf) == 4 && type(a:uconf) == 4
     for key in keys(a:uconf)
-        let a:gconf[key] = a:uconf[key]
+      let a:gconf[key] = a:uconf[key]
     endfor
   endif
 endfun
@@ -43,6 +43,7 @@ fun! JsBeautify(...)
   let opts = substitute(opts,"'",'"','g')
   let opts = s:quote(opts)
 
+  let plen = len(getline(line1, line2))
   let content = join(getline(line1, line2), "\n")
   let content = s:quote(content)
 
@@ -57,8 +58,14 @@ fun! JsBeautify(...)
 
   let lines = split(res, "\n")
 
-  exec "g/.*/d"
   call setline(line1, lines)
+
+  " delete excess lines
+  if plen > len(lines)
+    let endline = len(lines) + 1
+    silent exec endline.",$g/.*/d"
+  endif
+
 endfun
 
 " mix user configuration with script configuration
