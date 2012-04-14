@@ -17,6 +17,9 @@ let s:jsbeautify = {"indent_size": 4, "indent_char": " "}
 " support nodejs or v8
 let g:jsbeautify_engine = "node"
 
+" path to jsbeautify file by default look it submodule lib
+let g:jsbeautify_file = fnameescape(s:pluginDir."/lib/beautify.js")
+
 " mixin dictionary
 fun! s:mixin(gconf,uconf)
   if type(a:gconf) == 4 && type(a:uconf) == 4
@@ -47,7 +50,7 @@ fun! JsBeautify(...)
   let content = join(getline(line1, line2), "\n")
   let content = s:quote(content)
 
-  let path = s:quote(s:pluginDir)
+  let path = s:quote(g:jsbeautify_file)
 
   if (executable(g:jsbeautify_engine))
     let res = system(g:jsbeautify_engine." ".fnameescape(s:pluginDir."/beautify-min.js")." --js_arguments ".content." ".opts." ".path)

@@ -21,10 +21,22 @@ cd vim-jsbeautify && git submodule foreach git pull
 
 ### With Vundle
 Add this to .vimrc:
+```vim
+
+  Bundle 'maksimr/vim-jsbeautify'
+
+  " and go to plugin direcotory and run git submodule foreach git pull
+
+```
+or (recomended)
 
 ```vim
 
   Bundle 'maksimr/vim-jsbeautify'
+  Bundle 'einars/js-beautify'
+
+  " set path to js-beautify file
+  let g:jsbeautify_file = fnameescape('~/.vim/bundle/js-beautify/beautify.js')
 
 ```
 

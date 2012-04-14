@@ -63,7 +63,7 @@
         };
         options = (options && JSON.parse(options)) || defOps;
 
-        load(path + '/lib/beautify.js');
+        load(path);
         print(global.js_beautify(content, options));
 
     }(content, options, path));
