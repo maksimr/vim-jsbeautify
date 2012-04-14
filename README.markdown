@@ -44,6 +44,12 @@ Run on v8
 ```vim
   ".vimrc
 
+  " by default
+  let g:jsbeautify_engine = "node"
+
+  " If you bin name for node is nodejs
+  let g:jsbeautify_engine = "nodejs"
+
   let g:jsbeautify_engine = "v8"
 
   " or if you have other alias
