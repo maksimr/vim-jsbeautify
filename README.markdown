@@ -36,7 +36,7 @@ or (recomended)
   Bundle 'einars/js-beautify'
 
   " set path to js-beautify file
-  let g:jsbeautify_file = fnameescape('~/.vim/bundle/js-beautify/beautify.js')
+  let g:jsbeautify_file = fnameescape(fnamemodify(expand("<sfile>"), ":h")."/bundle/js-beautify/beautify.js")
 
 ```
 
