@@ -15,10 +15,14 @@ let s:jsbeautify = {"indent_size": 4, "indent_char": " "}
 
 " engine for interpretation javascript
 " support nodejs or v8
-let g:jsbeautify_engine = "node"
+if !exists('g:jsbeautify_engine')
+  let g:jsbeautify_engine = "node"
+endif
 
 " path to jsbeautify file by default look it submodule lib
-let g:jsbeautify_file = fnameescape(s:pluginDir."/lib/beautify.js")
+if !exists('g:jsbeautify_file')
+  let g:jsbeautify_file = fnameescape(s:pluginDir."/lib/beautify.js")
+endif
 
 " mixin dictionary
 fun! s:mixin(gconf,uconf)
