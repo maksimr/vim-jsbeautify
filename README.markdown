@@ -21,6 +21,7 @@ cd vim-jsbeautify && git submodule foreach git pull
 
 ### With Vundle
 Add this to .vimrc:
+
 ```vim
 
   Bundle 'maksimr/vim-jsbeautify'
