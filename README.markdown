@@ -1,16 +1,29 @@
 vim-jsbeautify.vim
 ============
 
+## About
+
+Vim plugin based on js-beautify
+
+For more info, online demo and tests see [http://jsbeautifier.org/](online javascript beautifier)
+
 Installation
 ------------
 
-You must have installed one of javascript interpretators nodejs or v8
 
-If you use vundle simple put this string in your `vimrc`:
+### With Pathogen
+
+```
+cd ~/.vim/bundle
+git clone https://github.com/maksimr/vim-jsbeautify.git
+```
+
+### With Vundle
+Add this to .vimrc:
 
 ```vim
 
-  Bundle 'maksimr/jsbeautify'
+  Bundle 'maksimr/vim-jsbeautify'
 
 ```
 
@@ -47,7 +60,7 @@ Usage
 
 ```
 
-Function JsBeautify take two parameters first `start line` second `end line`,
+Function JsBeautify takes two parameters. First `start line` second `end line`,
 by default `start line` equal '0' and `end line` equal '$'
 
 (version: 0.1)
