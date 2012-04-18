@@ -83,4 +83,8 @@ Usage
 Function JsBeautify takes two parameters. First `start line` second `end line`,
 by default `start line` equal '0' and `end line` equal '$'
 
-(version: 0.1)
+##VERSIONS
+
+0.1.1: Fix bug with escape in shell
+
+(version: 0.1.1)

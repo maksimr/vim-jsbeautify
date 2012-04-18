@@ -3,13 +3,14 @@
  * support nodejs and v8 interpretator
  */
 
-(function(content, options, path) {
+(function(contentPath, options, path) {
     "use strict";
     var
     global = (function() {
         return this || eval.call(null, 'this');
     }()),
         load = global.load,
+        read = global.read,
         print = global.print,
         hasCache = null,
 
@@ -43,28 +44,36 @@
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
 
     if (has('host-node')) {
-        load = function(path) {
-            var fs = require('fs'),
-                vm = require('vm'),
-                context = {},
+      (function () {
+        var fs = require('fs'),
+            vm = require('vm');
 
-                data = fs.readFileSync(path, 'utf-8');
+        load = function(path) {
+                var context = {},
+                data = read(path);
+
             vm.runInNewContext(data, context, path);
             global.js_beautify = context.js_beautify;
         };
+
         print = global.console.log;
+        read = function (path) {
+          return fs.readFileSync(path, 'utf-8');
+        };
+      }());
     }
 
     // execute jsbeautify
-    (function(content, options, path) {
+    (function(contentPath, options, path) {
         var defOps = {
             indent_size: 4,
             indent_char: ' '
-        };
+        },
+        content = read(contentPath);
         options = (options && JSON.parse(options)) || defOps;
 
         load(path);
         print(global.js_beautify(content, options));
 
-    }(content, options, path));
+    }(contentPath, options, path));
 }).apply(this, (typeof process === 'object' && process.argv.splice(3)) || arguments);
