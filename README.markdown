@@ -38,6 +38,7 @@ or (recomended)
 
   " set path to js-beautify file
   let g:jsbeautify_file = fnameescape(fnamemodify(expand("<sfile>"), ":h")."/bundle/js-beautify/beautify.js")
+  let g:htmlbeautify_file = fnameescape(fnamemodify(expand("<sfile>"), ":h")."/bundle/js-beautify/beautify-html.js")
 
 ```
 
@@ -49,7 +50,9 @@ Configuration jsbeautify
 ```vim
   ".vimrc
 
-  let g:jsbeautify = {"indent_size": 4, "indent_char": "\t"}
+  let g:jsbeautify = {'indent_size': 4, 'indent_char': '\t'}
+  let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' '}
+
 
 ```
 
@@ -79,6 +82,8 @@ Usage
   map <c-f> :call JsBeautify()<cr>
   " or
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+  " for html
+  autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 
 ```
 
@@ -87,7 +92,7 @@ by default `start line` equal '0' and `end line` equal '$'
 
 ##VERSIONS
 
-0.1.1: Fix bug with escape in shell
-0.1.2: Add support html beautifier (in 'dev' branch)
+* 0.1.1: Fix bug with escape in shell
+* 0.1.2: Add support html beautifier (in 'dev' branch)
 
 (version: 0.1.1)
