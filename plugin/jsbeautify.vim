@@ -1,8 +1,8 @@
 " Vim plugin
-" Language:	javascript, html
+" Language:	javascript, html, css
 " Maintainer:	Maksim Ryzhikov <rv.maksim@gmail.com>
 " License: MIT
-" Version: 0.1.2
+" Version: 0.1.3
 
 " Only do this when not done yet for this buffer
 if exists("JsBeautify") || exists("HtmlBeautify")
@@ -13,7 +13,8 @@ endif
 let s:pluginDir = fnamemodify(expand("<sfile>"), ":h")
 
 let s:jsbeautify = {"indent_size": 4, "indent_char": " "}
-let s:htmlbeautify = {"indent_size": 4, "indent_char": " "}
+let s:htmlbeautify = {"indent_size": 4, "indent_char": " ", "max_char": 78, "brace_style": "expand", "unformatted": ["a", "sub", "sup", "b", "i", "u"]}
+let s:cssbeautify = {"indent_size": 4, "indent_char": " "}
 
 " engine for interpretation javascript
 " support nodejs or v8
@@ -27,6 +28,9 @@ if !exists('g:jsbeautify_file')
 endif
 if !exists('g:htmlbeautify_file')
   let g:htmlbeautify_file = fnameescape(s:pluginDir."/lib/beautify-html.js")
+endif
+if !exists('g:cssbeautify_file')
+  let g:cssbeautify_file = fnameescape(s:pluginDir."/lib/beautify-css.js")
 endif
 
 " temporary file for content
@@ -60,6 +64,10 @@ fun! HtmlBeautify(...)
   return call('Beautify', extend(['html'], a:000))
 endfun
 
+fun! CSSBeautify(...)
+  return call('Beautify', extend(['css'], a:000))
+endfun
+
 " @param {[Number|String]} a:0 Default value '1'
 " @param {[Number|String]} a:1 Default value '$'
 " @param {[String]} a:2 type of file
@@ -77,6 +85,9 @@ fun! Beautify(...)
   elseif type == 'html'
     let _opts = s:htmlbeautify
     let path = g:htmlbeautify_file
+  elseif type == 'css'
+    let _opts = s:cssbeautify
+    let path = g:cssbeautify_file
   else
     return
   endif
@@ -120,4 +131,8 @@ endif
 
 if exists('g:htmlbeautify')
   call s:mixin(s:htmlbeautify, g:htmlbeautify)
+endif
+
+if exists('g:cssbeautify')
+  call s:mixin(s:cssbeautify, g:cssbeautify)
 endif

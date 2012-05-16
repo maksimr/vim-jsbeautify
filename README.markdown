@@ -37,8 +37,10 @@ or (recomended)
   Bundle 'einars/js-beautify'
 
   " set path to js-beautify file
-  let g:jsbeautify_file = fnameescape(fnamemodify(expand("<sfile>"), ":h")."/bundle/js-beautify/beautify.js")
-  let g:htmlbeautify_file = fnameescape(fnamemodify(expand("<sfile>"), ":h")."/bundle/js-beautify/beautify-html.js")
+  let s:rootDir = fnamemodify(expand("<sfile>"), ":h")
+  let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
+  let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
+  let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
 
 ```
 
@@ -52,6 +54,7 @@ Configuration jsbeautify
 
   let g:jsbeautify = {'indent_size': 4, 'indent_char': '\t'}
   let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' '}
+  let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
 
 
 ```
@@ -84,6 +87,8 @@ Usage
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
   " for html
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+  " for css or scss
+  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 ```
 
@@ -93,6 +98,7 @@ by default `start line` equal '0' and `end line` equal '$'
 ##VERSIONS
 
 * 0.1.1: Fix bug with escape in shell
-* 0.1.2: Add support html beautifier (in 'dev' branch)
+* 0.1.2: Add support html beautifier and global function Beautify(type,start_line, end_line) where type is js, html or css, all params optional
+* 0.1.3: Add support css beautifier
 
-(version: 0.1.1)
+(version: 0.1.3)

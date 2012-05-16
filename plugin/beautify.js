@@ -5,8 +5,7 @@
 
 (function(contentPath, options, path) {
     "use strict";
-    var
-    global = (function() {
+    var global = (function() {
         return this || eval.call(null, 'this');
     }()),
         load = global.load,
@@ -80,7 +79,7 @@
 
         load(path);
 
-        global.beautify = global.js_beautify || global.style_html;
+        global.beautify = global.js_beautify || global.style_html || global.css_beautify;
 
         print(global.beautify(content, options));
 
