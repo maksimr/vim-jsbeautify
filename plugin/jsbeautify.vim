@@ -5,7 +5,7 @@
 " Version: 0.1.3
 
 " Only do this when not done yet for this buffer
-if exists("JsBeautify") || exists("HtmlBeautify")
+if exists("JsBeautify") || exists("HtmlBeautify") || exists("CSSBeautify")
   finish
 endif
 
@@ -13,7 +13,7 @@ endif
 let s:pluginDir = fnamemodify(expand("<sfile>"), ":h")
 
 let s:jsbeautify = {"indent_size": 4, "indent_char": " "}
-let s:htmlbeautify = {"indent_size": 4, "indent_char": " ", "max_char": 78, "brace_style": "expand", "unformatted": ["a", "sub", "sup", "b", "i", "u"]}
+let s:htmlbeautify = {"indent_size": 4, "indent_char": " ", "max_char": 78, "brace_style": "expand", "unformatted": []}
 let s:cssbeautify = {"indent_size": 4, "indent_char": " "}
 
 " engine for interpretation javascript
@@ -80,12 +80,15 @@ fun! Beautify(...)
 
   " define parameters are depended from type of file
   if type == 'js'
+    call s:jsmixin()
     let _opts = s:jsbeautify
     let path = g:jsbeautify_file
   elseif type == 'html'
+    call s:htmlmixin()
     let _opts = s:htmlbeautify
     let path = g:htmlbeautify_file
   elseif type == 'css'
+    call s:cssmixin()
     let _opts = s:cssbeautify
     let path = g:cssbeautify_file
   else
@@ -124,15 +127,25 @@ fun! Beautify(...)
 
 endfun
 
+func! s:jsmixin()
+  if exists('g:jsbeautify')
+    call s:mixin(s:jsbeautify, g:jsbeautify)
+  endif
+endfun
+
+func! s:htmlmixin()
+  if exists('g:htmlbeautify')
+    call s:mixin(s:htmlbeautify, g:htmlbeautify)
+  endif
+endfun
+
+func! s:cssmixin()
+  if exists('g:cssbeautify')
+    call s:mixin(s:cssbeautify, g:cssbeautify)
+  endif
+endfun
+
 " mix user configuration with script configuration
-if exists('g:jsbeautify')
-  call s:mixin(s:jsbeautify, g:jsbeautify)
-endif
-
-if exists('g:htmlbeautify')
-  call s:mixin(s:htmlbeautify, g:htmlbeautify)
-endif
-
-if exists('g:cssbeautify')
-  call s:mixin(s:cssbeautify, g:cssbeautify)
-endif
+call s:jsmixin()
+call s:htmlmixin()
+call s:cssmixin()
