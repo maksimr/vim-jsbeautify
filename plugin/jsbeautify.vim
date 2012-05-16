@@ -1,17 +1,19 @@
 " Vim plugin
-" Language:	javascript
+" Language:	javascript, html
 " Maintainer:	Maksim Ryzhikov <rv.maksim@gmail.com>
 " License: MIT
-" Version: 0.1.1
+" Version: 0.1.2
 
 " Only do this when not done yet for this buffer
-if exists("JsBeautify")
+if exists("JsBeautify") || exists("HtmlBeautify")
   finish
 endif
 
 
 let s:pluginDir = fnamemodify(expand("<sfile>"), ":h")
+
 let s:jsbeautify = {"indent_size": 4, "indent_char": " "}
+let s:htmlbeautify = {"indent_size": 4, "indent_char": " "}
 
 " engine for interpretation javascript
 " support nodejs or v8
@@ -22,6 +24,9 @@ endif
 " path to jsbeautify file by default look it submodule lib
 if !exists('g:jsbeautify_file')
   let g:jsbeautify_file = fnameescape(s:pluginDir."/lib/beautify.js")
+endif
+if !exists('g:htmlbeautify_file')
+  let g:htmlbeautify_file = fnameescape(s:pluginDir."/lib/beautify-html.js")
 endif
 
 " temporary file for content
@@ -48,10 +53,35 @@ endfun
 " @param {[Number|String]} a:0 Default value '1'
 " @param {[Number|String]} a:1 Default value '$'
 fun! JsBeautify(...)
-  let line1 = get(a:000, 0, '1')
-  let line2 = get(a:000, 1, '$')
+  return call('Beautify', extend(['js'], a:000))
+endfun
 
-  let opts = string(s:jsbeautify)
+fun! HtmlBeautify(...)
+  return call('Beautify', extend(['html'], a:000))
+endfun
+
+" @param {[Number|String]} a:0 Default value '1'
+" @param {[Number|String]} a:1 Default value '$'
+" @param {[String]} a:2 type of file
+fun! Beautify(...)
+  let line1 = get(a:000, 1, '1')
+  let line2 = get(a:000, 2, '$')
+
+  " define type of file
+  let type = get(a:000, 0, expand('%:e'))
+
+  " define parameters are depended from type of file
+  if type == 'js'
+    let _opts = s:jsbeautify
+    let path = g:jsbeautify_file
+  elseif type == 'html'
+    let _opts = s:htmlbeautify
+    let path = g:htmlbeautify_file
+  else
+    return
+  endif
+
+  let opts = string(_opts)
   let opts = substitute(opts,"'",'"','g')
   let opts = s:quote(opts)
 
@@ -60,7 +90,7 @@ fun! JsBeautify(...)
 
   call writefile(content, g:jsbeautify_log_file)
 
-  let path = s:quote(g:jsbeautify_file)
+  let path = s:quote(path)
   let content_path = s:quote(g:jsbeautify_log_file)
 
 
@@ -86,4 +116,8 @@ endfun
 " mix user configuration with script configuration
 if exists('g:jsbeautify')
   call s:mixin(s:jsbeautify, g:jsbeautify)
+endif
+
+if exists('g:htmlbeautify')
+  call s:mixin(s:htmlbeautify, g:htmlbeautify)
 endif

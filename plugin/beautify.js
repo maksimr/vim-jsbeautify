@@ -11,6 +11,7 @@
     }()),
         load = global.load,
         read = global.read,
+        hop = Object.prototype.hasOwnProperty,
         print = global.print,
         hasCache = null,
 
@@ -44,23 +45,28 @@
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
 
     if (has('host-node')) {
-      (function () {
-        var fs = require('fs'),
-            vm = require('vm');
+        (function() {
+            var fs = require('fs'),
+                vm = require('vm');
 
-        load = function(path) {
+            load = function(path) {
                 var context = {},
-                data = read(path);
+                    data = read(path),
+                    property;
 
-            vm.runInNewContext(data, context, path);
-            global.js_beautify = context.js_beautify;
-        };
+                vm.runInNewContext(data, context, path);
+                for (property in context) {
+                    if (hop.call(context, property)) {
+                        global[property] = context[property];
+                    }
+                }
+            };
 
-        print = global.console.log;
-        read = function (path) {
-          return fs.readFileSync(path, 'utf-8');
-        };
-      }());
+            print = global.console.log;
+            read = function(path) {
+                return fs.readFileSync(path, 'utf-8');
+            };
+        }());
     }
 
     // execute jsbeautify
@@ -69,11 +75,14 @@
             indent_size: 4,
             indent_char: ' '
         },
-        content = read(contentPath);
+            content = read(contentPath);
         options = (options && JSON.parse(options)) || defOps;
 
         load(path);
-        print(global.js_beautify(content, options));
+
+        global.beautify = global.js_beautify || global.style_html;
+
+        print(global.beautify(content, options));
 
     }(contentPath, options, path));
 }).apply(this, (typeof process === 'object' && process.argv.splice(3)) || arguments);

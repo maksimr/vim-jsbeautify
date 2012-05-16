@@ -77,6 +77,8 @@ Usage
   ".vimrc
 
   map <c-f> :call JsBeautify()<cr>
+  " or
+  autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
 ```
 
@@ -86,5 +88,6 @@ by default `start line` equal '0' and `end line` equal '$'
 ##VERSIONS
 
 0.1.1: Fix bug with escape in shell
+0.1.2: Add support html beautifier (in 'dev' branch)
 
 (version: 0.1.1)
