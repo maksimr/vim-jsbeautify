@@ -16,7 +16,7 @@ Installation
 ```
 cd ~/.vim/bundle
 git clone https://github.com/maksimr/vim-jsbeautify.git
-cd vim-jsbeautify && git submodule foreach git pull
+cd vim-jsbeautify && git submodule update --init --recursive
 ```
 
 ### With Vundle
