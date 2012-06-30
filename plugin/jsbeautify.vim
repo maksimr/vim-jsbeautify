@@ -168,17 +168,20 @@ endfun
 func! BeautifyEditorconfigHook(config)
   let type = expand('%:e')
 
-  if !(type(a:config) == 4 && s:isAllowedType(type))
+  if !(type(a:config) == 4 && s:isAllowedType(type) && len(a:config))
     return 1
   endif
 
   let config = s:mixin({}, a:config)
 
-  if config["indent_style"] == 'space'
-    let config["indent_char"] = ' '
-  elseif config["indent_style"] == 'tab'
-    let config["indent_char"] = '\t'
+  if has_key(config, 'indent_size')
+    if config["indent_style"] == 'space'
+      let config["indent_char"] = ' '
+    elseif config["indent_style"] == 'tab'
+      let config["indent_char"] = '\t'
+    endif
   endif
+
 
   " Rewrite global config variable
   if type == 'js'

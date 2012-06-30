@@ -106,4 +106,4 @@ by default `start line` equal '0' and `end line` equal '$'
 * 0.1.5: Add intergration with [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim#readme).
 More about [editorconfig](http://editorconfig.org/)
 
-(version: 0.1.4)
+(version: 0.1.5)
