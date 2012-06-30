@@ -22,9 +22,6 @@
         isUndefined = function(it) {
             return typeof it === 'undefined';
         },
-        isObject = function(it) {
-            return objectPrototypeToString.call(it) === '[object Object]';
-        },
 
         has = function(name) {
             hasCache[name] = isFunction(hasCache[name]) ? hasCache[name](global) : hasCache[name];
@@ -40,7 +37,7 @@
         return now && has(name);
     };
 
-    has.add('host-node', isObject(global.process) && /node(\.exe||js)?$/.test(global.process.execPath));
+    has.add('host-node', global.process && /node(\.exe||js)?$/.test(global.process.execPath));
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
 
     if (has('host-node')) {

@@ -1,0 +1,12 @@
+{
+  "plugin": "../beautify.js",
+  "beautify": {
+    "js_path": "../lib/beautify.js",
+    "css_path": "../lib/beautify-css.js",
+    "html_path": "../lib/beautify-html.js"
+  },
+  "options": {
+    "indent_size": 4,
+    "indent_char": " "
+  }
+}

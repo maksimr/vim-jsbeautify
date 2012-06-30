@@ -1,0 +1,87 @@
+/**
+ * Spec jsbeautify.vim.
+ *
+ * test covered:
+ *  + node 0.6.18
+ *  + node 0.8.1
+ *  + v8 3.11.10
+ */
+
+(function(global) {
+    var system = require('child_process').exec,
+        conf = require('./conf.json'),
+        helpers = require('./helpers'),
+        print = helpers.print,
+        mixin = helpers.mixin,
+
+        /**
+         * Common test spec.
+         */
+        testCase = {
+            'beautify with default options': function(test) {
+                var contentPath = 'test.js',
+                    command = this.command;
+
+                test.expect(1);
+                command = print(command, conf.plugin, contentPath, {}, conf.beautify.js_path);
+
+                /**
+                 * Should simple format file.
+                 */
+                system(command, function(err, stdout, stderr) {
+                    stdout = err || stderr || stdout;
+                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n    return i;\n});\n', 'should be formatted string.');
+                    test.done();
+                });
+            },
+            'beautify with tabulation': function(test) {
+                var contentPath = 'test.js',
+                    command = this.command,
+                    options = '{"indent_size": 2, "indent_char": "\t"}';
+
+                test.expect(1);
+                command = print(command, conf.plugin, contentPath, options, conf.beautify.js_path);
+
+                /**
+                 * Should format string
+                 * and change white space on tabulation chars.
+                 */
+                system(command, function(err, stdout, stderr) {
+                    stdout = err || stderr || stdout;
+                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n\t\treturn i;\n});\n', 'should be formatted string with tab.');
+                    test.done();
+                });
+            }
+        };
+
+    /**
+     * Test for node 0.6.18
+     */
+    exports['node-0.6.18'] = mixin({
+        setUp: function(done) {
+            this.command = 'node ${0} --js_arguments ${1} ${2} ${3}';
+            done();
+        }
+    }, testCase);
+
+    /**
+     * Test for node 0.8.1
+     */
+    exports['node-0.8.1'] = mixin({
+        setUp: function(done) {
+            this.command = 'node-0.8.1 ${0} --js_arguments ${1} ${2} ${3}';
+            done();
+        }
+    }, testCase);
+
+    /**
+     * Test for v8 3.11.10
+     */
+    exports.v8 = mixin({
+        setUp: function(done) {
+            this.command = 'v8 ${0} --js_arguments ${1} ${2} ${3}';
+            done();
+        }
+    }, testCase);
+
+}(this));

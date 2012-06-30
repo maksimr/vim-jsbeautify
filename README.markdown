@@ -100,5 +100,6 @@ by default `start line` equal '0' and `end line` equal '$'
 * 0.1.1: Fix bug with escape in shell
 * 0.1.2: Add support html beautifier and global function Beautify(type,start_line, end_line) where type is js, html or css, all params optional
 * 0.1.3: Add support css beautifier
+* 0.1.4: Add tests for beautify-js (thanks @benja2729 fix issue #1)
 
-(version: 0.1.3)
+(version: 0.1.4)

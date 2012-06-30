@@ -2,7 +2,7 @@
 " Language:	javascript, html, css
 " Maintainer:	Maksim Ryzhikov <rv.maksim@gmail.com>
 " License: MIT
-" Version: 0.1.3
+" Version: 0.1.4
 
 " Only do this when not done yet for this buffer
 if exists("JsBeautify") || exists("HtmlBeautify") || exists("CSSBeautify")
@@ -109,7 +109,7 @@ fun! Beautify(...)
 
 
   if (executable(g:jsbeautify_engine))
-    let res = system(g:jsbeautify_engine." ".fnameescape(s:pluginDir."/beautify-min.js")." --js_arguments ".content_path." ".opts." ".path)
+    let res = system(g:jsbeautify_engine." ".fnameescape(s:pluginDir."/beautify.min.js")." --js_arguments ".content_path." ".opts." ".path)
   else
     echo "Command ".g:jsbeautify_engine." doesn't exist!"
     return

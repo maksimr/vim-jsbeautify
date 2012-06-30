@@ -1,1 +1,2 @@
-/* * * * * * * * * * */ (function() { var foo = "foo"; console.log("bar"); (function() {}()); }());
+(["foo","bar"]).each(function(i) {
+return i;});
