@@ -2,7 +2,10 @@
 " Language:	javascript, html, css
 " Maintainer:	Maksim Ryzhikov <rv.maksim@gmail.com>
 " License: MIT
-" Version: 0.1.4
+" Version: 0.1.5
+"
+" Need reduce count of global variables, change
+" their on function.
 
 " Only do this when not done yet for this buffer
 if exists("JsBeautify") || exists("HtmlBeautify") || exists("CSSBeautify")
@@ -44,8 +47,22 @@ fun! s:mixin(gconf,uconf)
     for key in keys(a:uconf)
       let a:gconf[key] = a:uconf[key]
     endfor
+
+    return a:gconf
   endif
 endfun
+
+" check type of files
+func! s:isAllowedType(type)
+  let haz = 1
+
+  if !(a:type == 'js' || a:type == 'css' || a:type == 'html')
+    let haz = 0
+  endif
+
+  return haz
+endfun
+
 
 " quote string
 fun! s:quote(str)
@@ -144,6 +161,43 @@ func! s:cssmixin()
     call s:mixin(s:cssbeautify, g:cssbeautify)
   endif
 endfun
+
+" editorconfig hook
+" Intergration with editorconfig.
+" https://github.com/editorconfig/editorconfig-vim.git
+func! BeautifyEditorconfigHook(config)
+  let type = expand('%:e')
+
+  if !(type(a:config) == 4 && s:isAllowedType(type))
+    return 1
+  endif
+
+  let config = s:mixin({}, a:config)
+
+  if config["indent_style"] == 'space'
+    let config["indent_char"] = ' '
+  elseif config["indent_style"] == 'tab'
+    let config["indent_char"] = '\t'
+  endif
+
+  " Rewrite global config variable
+  if type == 'js'
+    let g:jsbeautify = config
+  elseif type == 'html'
+    let g:cssbeautify = config
+  elseif type == 'css'
+    let g:htmlbeautify = config
+  endif
+
+  " All Ok! retun 0
+  return 0
+endfun
+
+let FHook = function('BeautifyEditorconfigHook')
+
+if exists('g:loaded_EditorConfig')
+  call editorconfig#AddNewHook(FHook)
+endif
 
 " mix user configuration with script configuration
 call s:jsmixin()
