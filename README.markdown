@@ -1,6 +1,8 @@
 vim-jsbeautify.vim
 ============
 
+[![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
+
 ## About
 
 Vim plugin based on js-beautify

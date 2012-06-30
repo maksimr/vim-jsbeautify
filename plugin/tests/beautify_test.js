@@ -19,7 +19,7 @@
          */
         testCase = {
             'beautify JS': function(test) {
-                var contentPath = 'templates/test.js',
+                var contentPath = 'plugin/tests/templates/test.js',
                     command = this.command;
 
                 test.expect(1);
@@ -35,7 +35,7 @@
                 });
             },
             'beautify JS with options': function(test) {
-                var contentPath = 'templates/test.js',
+                var contentPath = 'plugin/tests/templates/test.js',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
@@ -53,7 +53,7 @@
                 });
             },
             'beautify HTML': function(test) {
-                var contentPath = 'templates/test.html',
+                var contentPath = 'plugin/tests/templates/test.html',
                     command = this.command;
 
                 test.expect(1);
@@ -69,7 +69,7 @@
                 });
             },
             'beautify HTML with options': function(test) {
-                var contentPath = 'templates/test.html',
+                var contentPath = 'plugin/tests/templates/test.html',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
@@ -87,7 +87,7 @@
                 });
             },
             'beautify CSS': function(test) {
-                var contentPath = 'templates/test.css',
+                var contentPath = 'plugin/tests/templates/test.css',
                     command = this.command;
 
                 test.expect(1);
@@ -103,7 +103,7 @@
                 });
             },
             'beautify CSS with options': function(test) {
-                var contentPath = 'templates/test.css',
+                var contentPath = 'plugin/tests/templates/test.css',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
@@ -123,9 +123,9 @@
         };
 
     /**
-     * Test for node 0.6.18
+     * Test for node
      */
-    exports['node-0.6.18'] = mixin({
+    exports.node = mixin({
         setUp: function(done) {
             this.command = 'node ${0} --js_arguments ${1} ${2} ${3}';
             done();
@@ -135,21 +135,21 @@
     /**
      * Test for node 0.8.1
      */
-    exports['node-0.8.1'] = mixin({
-        setUp: function(done) {
-            this.command = 'node-0.8.1 ${0} --js_arguments ${1} ${2} ${3}';
-            done();
-        }
-    }, testCase);
+    //exports['node-0.8.1'] = mixin({
+        //setUp: function(done) {
+            //this.command = 'node-0.8.1 ${0} --js_arguments ${1} ${2} ${3}';
+            //done();
+        //}
+    //}, testCase);
 
     /**
      * Test for v8 3.11.10
      */
-    exports.v8 = mixin({
-        setUp: function(done) {
-            this.command = 'v8 ${0} --js_arguments ${1} ${2} ${3}';
-            done();
-        }
-    }, testCase);
+    //exports.v8 = mixin({
+        //setUp: function(done) {
+            //this.command = 'v8 ${0} --js_arguments ${1} ${2} ${3}';
+            //done();
+        //}
+    //}, testCase);
 
 }(this));

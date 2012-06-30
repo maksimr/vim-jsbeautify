@@ -13,15 +13,15 @@ module.exports = function(grunt) {
         },
         min: {
             dist: {
-                src: ['../<%= pkg.name %>.js'],
-                dest: '../<%= pkg.name %>.min.js'
+                src: ['plugin/<%= pkg.name %>.js'],
+                dest: 'plugin/<%= pkg.name %>.min.js'
             }
         },
         test: {
-            files: ['*_test.js']
+            files: ['plugin/tests/*_test.js']
         },
         lint: {
-            files: ['grunt.js', '../*.js', '**/*.js']
+            files: ['grunt.js', 'plugin/*js', '<config:test.files>']
         },
         watch: {
             files: '<config:lint.files>',
