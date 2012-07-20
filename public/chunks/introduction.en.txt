@@ -1,0 +1,2 @@
+vim-beautifier - an extension for jsbeautifier, which allows you to format the javascript,
+css and html files in vim. Also, it has tight integration with editorconfig.

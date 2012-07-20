@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/stylesheets/common.css" />
+    <!--javascript section-->
+    <script type="text/javascript" data-main="assets/javascripts/page.js" src="assets/javascripts/require.js"></script>
+  </head>
+  
+  <body>
+    <!--Header section-->
+    <header>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">Beautifier</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li class="divider-vertical"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--end header section-->
+    <!--body section-->
+    <div class="container-fluid">
+      <div class="container">
+
+
+
+<h2>Зачем нужна эта страница?</h2>
+
+<p>Код который мы пищим является нашим отражением, это почти как в поговорке
+  'Встречают по одежке а провожают по ...'. Хороший и красивый код, каждый понимает
+  по своему. Когда вы пишите код для себя, например страница с вашим портфолио
+  вы вольны выбирать стиль написания сами, но когда в проекте участвует больше одного человека
+  то тут уже жизненно необходимо выработать единый стиль и уже личностные предпочтения
+  должны отойти на второй план. О том почему нужно писать код в едином стиле написано много статей,
+  а здесь представлен маленький инструмент который поможет вам безболезненно переключаться между
+  разными проектами и не делать лишних движений для настройки вашего редактора, в данном случае vim-а.</p>
+
+
+
+
+<h2>Что это?</h2>
+
+<p>vim-beautifier - это расширение для vim-а, которое является промежуточным звеном между vim-ом
+  и javascript-овой библиотекой jsbeautifier. Про vim вы можете почитать <a href="http://vim.org">тут</a>, а про
+  jsbeautifier вот <a href="http://jsbeautifier.org/">тут</a>.</p>
+
+<p>Также vim-beautifier умеет взаимодействовать с замечательным расширением для vim-а,
+  <a href="https://github.com/editorconfig/editorconfig-vim">editorconfig-vim</a>, 
+  которое позволяет вам иметь отдельные настройки для каждого
+  проекта. Больше про концепцию 'editorconfig' вы можете узнать <a href="http://editorconfig.org/">тут</a>.</p>
+
+
+
+
+<h2>Зависимости</h2>
+
+<p>Так как vim-beautifier является лишь промежуточным между vim-ом и jsbeautifier-ом,
+  то вам придется установить 'vim', 'jsbeautifier', и один из javascript интерпретаторов либо
+  <a href="http://nodejs.org/">nodejs</a>, либо <a href="http://code.google.com/p/v8/">v8</a> от Google.</p>
+
+
+
+
+<h2>Установка</h2>
+
+<p>Для того чтобы установить 'vim-beautifier' вы можете воспользоваться либо
+  <a href="https://github.com/gmarik/vundle">Vundle</a>, либо <a href="https://github.com/tpope/vim-pathogen">pathogen</a> ну или скачать и положить это в
+  папку '~/.vim/plugin'.</p>
+
+<p>Для того чтобы загрузить 'jsbeautifier' вам необходимо вызвать внутри папки 'vim-beautifier'
+  следующею гит(git) команду, которая инициализирует и загрузить под модуль 'git submodule init && git submodule update'.
+  Но это не обязательно вы можете отдельно скачать 'jsbeautifier' и в настройках указать путь до исполняемых файлов,
+  как это сделать будет показано ниже</p>
+
+
+
+
+<h2>Настройка</h2>
+
+<p>Для того чтобы настроить vim-beautifier вам необходимо создать файл .editorconfig
+  в корневой директории '~/' или в папке '~/.vim'. И определить внутри него необходимые
+  параметры для javascript, css и html файлов. Параметры при инициализации берутся
+  только из секций [**.js], [**.css] и [**.html] файла '.editorconfig', так что будьте
+  внимательны.</p>
+
+<p>Пример глобального файла '.editorconfig':</p>
+
+<pre>
+  root = true
+
+  [**.js]
+  indent_style = space
+  indent_size = 4
+
+  [**.css]
+  indent_style = space
+  indent_size = 4
+
+  [**.html]
+  indent_style = space
+  indent_size = 4
+</pre>
+
+
+<p>Если вы уже имеете 'jsbeautifier' или скачали отдельно, то вы можете
+  указать путь до файлов в '.editorconfig', например:</p>
+
+<pre>
+  root = true
+
+  [**.js]
+  ;vim:path=~/.vim/bundle/js-beautify/beautify.js
+  indent_style = space
+  indent_size = 4
+
+  [**.html]
+  path=~/.vim/bundle/js-beautify/beautify-html.js
+  ;В одной строке специального комментария вы можете
+  ;передать больше одного параметра.
+  ;vim:max_char=78:brace_style=expand
+  indent_style = space
+  indent_size = 4
+  ;Лучше передавать параметры явно, а не через
+  ;специальные комментарии.
+  max_char = 78
+  brace_style = expand
+
+  [**.css]
+  ;Вы также можете записать параметр 'path'
+  ;явно как свойство editorconfig. Такая запись
+  ;является обязательной при объявлении свойств
+  ;в файле проекта, так как там комментарии не учитываются.
+  path=~/.vim/bundle/js-beautify/beautify-css.js
+  indent_style = space
+  indent_size = 4
+</pre>
+
+<p>Здесь ';vim:', это специальный комментарий, который полезен
+  только для глобальной конфигурации, так как в дальнейшем при
+  установки параметров в проекте 'editorconfig-vim' не учитывает
+  и не передает комментарии.</p>
+
+
+
+
+<h2>Параметры которые относятся к настройке 'vim-beautifier'</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Значение по умолчанию</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>path</code></td>
+            <td>$PLUGIN_DIRECTORY/plugin/lib</td>
+            <td>Путь до исполняемого файла 'jsbeautifier'</td>
+        </tr>
+        <tr>
+            <td><code>bin</code></td>
+            <td>node</td>
+            <td>Название внешнего javascript интерпретатора</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+      </div>
+      <!--footer section-->
+      <footer class="footer container">
+        <a href="mailto:rv.maksim@gmail.com">rv.maksim@gmail.com</a>
+      </footer>
+      <!--end footer section-->
+    </div>
+    <!--end body section-->
+  </body>
+
+</html>

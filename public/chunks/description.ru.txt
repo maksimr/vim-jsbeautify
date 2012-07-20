@@ -1,0 +1,2 @@
+vim-beautifier - это расширение для jsbeautifier, которое позволяет вам форматировать javascript,
+css и html файлы в vim-е. Так же оно имеет тесную интеграцию с editorconfig.

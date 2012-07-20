@@ -1,0 +1,58 @@
+/*
+ * @desc Set up compass reset.
+ */
+@import "compass/reset";
+
+/*
+ * @desc dependency.
+ */
+@import "compass/css3/transition";
+@import "compass/css3/text-shadow";
+
+/*
+ * @desc Load twitter bootstartp.
+ */
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import "compass/typography/vertical_rhythm";
+
+/*
+ * variables
+ */
+$font-size: 16px;
+
+@include establish-baseline($font-size);
+
+/*
+ * @desc Custom style.
+ */
+body, p {
+  // line-height
+  @include adjust-leading-to(1);
+
+  font-size: $font-size;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+p {
+  @include margin-trailer;
+}
+
+body {
+  background-color: #FFF;
+  padding-top: 90px;
+
+  color: 333;
+
+  @media (max-width: 979px) {
+    padding-top: 0;
+  }
+}
+
+.navbar-fixed-top .brand {
+  @include transition-property(all);
+  @include transition-duration(0.2s);
+  @include text-shadow(rgba(255, 255, 255, 0.1) 0 1px 0, rgba( 255, 255, 255, 0.125) 0 0 30px);
+
+  font-weight: bold;
+  color: #000;
+}

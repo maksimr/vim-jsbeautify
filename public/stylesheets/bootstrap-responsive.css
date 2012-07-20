@@ -1,0 +1,1029 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\000031}}
+.clearfix {
+  *zoom: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\000035}}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\000039}}
+.clearfix:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000312}}
+.hide-text {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000317}}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000326}}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000330}}
+.visible-phone {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000333}}
+.visible-tablet {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000336}}
+.visible-desktop {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000339}}
+.hidden-phone {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000342}}
+.hidden-tablet {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000345}}
+.hidden-desktop {
+  display: none;
+}
+
+@media (max-width: 767px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000349}}
+  .visible-phone {
+    display: block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000352}}
+  .hidden-phone {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000355}}
+  .hidden-desktop {
+    display: block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000358}}
+  .visible-desktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000363}}
+  .visible-tablet {
+    display: block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000366}}
+  .hidden-tablet {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000369}}
+  .hidden-desktop {
+    display: block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000372}}
+  .visible-desktop {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000377}}
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000380}}
+  .page-header h1 small {
+    display: block;
+    line-height: 18px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000385}}
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000388}}
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000394}}
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\0000397}}
+  .form-horizontal .control-list {
+    padding-top: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003100}}
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003104}}
+  .modal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003112}}
+  .modal.fade.in {
+    top: auto;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003115}}
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003119}}
+  .carousel-caption {
+    position: static;
+  }
+}
+@media (max-width: 767px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003124}}
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003128}}
+  .navbar-fixed-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003132}}
+  .container {
+    width: auto;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003135}}
+  .row-fluid {
+    width: 100%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003138}}
+  .row {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003142}}
+  .row > [class*="span"],
+  .row-fluid > [class*="span"] {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003148}}
+  .thumbnails [class*="span"] {
+    width: auto;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003154}}
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    /* Make inputs at least the height of their button counterpart */
+    /* Makes inputs behave like true block-level elements */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003168}}
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    width: auto;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003173}}
+  .row {
+    margin-left: -20px;
+    *zoom: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003178}}
+  .row:before,
+  .row:after {
+    display: table;
+    content: "";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003182}}
+  .row:after {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003185}}
+  [class*="span"] {
+    float: left;
+    margin-left: 20px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003191}}
+  .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    width: 724px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003194}}
+  .span12 {
+    width: 724px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003197}}
+  .span11 {
+    width: 662px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003200}}
+  .span10 {
+    width: 600px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003203}}
+  .span9 {
+    width: 538px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003206}}
+  .span8 {
+    width: 476px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003209}}
+  .span7 {
+    width: 414px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003212}}
+  .span6 {
+    width: 352px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003215}}
+  .span5 {
+    width: 290px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003218}}
+  .span4 {
+    width: 228px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003221}}
+  .span3 {
+    width: 166px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003224}}
+  .span2 {
+    width: 104px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003227}}
+  .span1 {
+    width: 42px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003230}}
+  .offset12 {
+    margin-left: 764px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003233}}
+  .offset11 {
+    margin-left: 702px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003236}}
+  .offset10 {
+    margin-left: 640px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003239}}
+  .offset9 {
+    margin-left: 578px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003242}}
+  .offset8 {
+    margin-left: 516px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003245}}
+  .offset7 {
+    margin-left: 454px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003248}}
+  .offset6 {
+    margin-left: 392px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003251}}
+  .offset5 {
+    margin-left: 330px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003254}}
+  .offset4 {
+    margin-left: 268px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003257}}
+  .offset3 {
+    margin-left: 206px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003260}}
+  .offset2 {
+    margin-left: 144px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003263}}
+  .offset1 {
+    margin-left: 82px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003266}}
+  .row-fluid {
+    width: 100%;
+    *zoom: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003271}}
+  .row-fluid:before,
+  .row-fluid:after {
+    display: table;
+    content: "";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003275}}
+  .row-fluid:after {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003278}}
+  .row-fluid > [class*="span"] {
+    float: left;
+    margin-left: 2.762430939%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003282}}
+  .row-fluid > [class*="span"]:first-child {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003285}}
+  .row-fluid > .span12 {
+    width: 99.999999993%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003288}}
+  .row-fluid > .span11 {
+    width: 91.436464082%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003291}}
+  .row-fluid > .span10 {
+    width: 82.87292817100001%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003294}}
+  .row-fluid > .span9 {
+    width: 74.30939226%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003297}}
+  .row-fluid > .span8 {
+    width: 65.74585634900001%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003300}}
+  .row-fluid > .span7 {
+    width: 57.182320438000005%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003303}}
+  .row-fluid > .span6 {
+    width: 48.618784527%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003306}}
+  .row-fluid > .span5 {
+    width: 40.055248616%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003309}}
+  .row-fluid > .span4 {
+    width: 31.491712705%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003312}}
+  .row-fluid > .span3 {
+    width: 22.928176794%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003315}}
+  .row-fluid > .span2 {
+    width: 14.364640883%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003318}}
+  .row-fluid > .span1 {
+    width: 5.801104972%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003323}}
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003326}}
+  input.span12, textarea.span12, .uneditable-input.span12 {
+    width: 714px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003329}}
+  input.span11, textarea.span11, .uneditable-input.span11 {
+    width: 652px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003332}}
+  input.span10, textarea.span10, .uneditable-input.span10 {
+    width: 590px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003335}}
+  input.span9, textarea.span9, .uneditable-input.span9 {
+    width: 528px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003338}}
+  input.span8, textarea.span8, .uneditable-input.span8 {
+    width: 466px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003341}}
+  input.span7, textarea.span7, .uneditable-input.span7 {
+    width: 404px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003344}}
+  input.span6, textarea.span6, .uneditable-input.span6 {
+    width: 342px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003347}}
+  input.span5, textarea.span5, .uneditable-input.span5 {
+    width: 280px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003350}}
+  input.span4, textarea.span4, .uneditable-input.span4 {
+    width: 218px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003353}}
+  input.span3, textarea.span3, .uneditable-input.span3 {
+    width: 156px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003356}}
+  input.span2, textarea.span2, .uneditable-input.span2 {
+    width: 94px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003359}}
+  input.span1, textarea.span1, .uneditable-input.span1 {
+    width: 32px;
+  }
+}
+@media (max-width: 979px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003364}}
+  body {
+    padding-top: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003367}}
+  .navbar-fixed-top {
+    position: static;
+    margin-bottom: 18px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003371}}
+  .navbar-fixed-top .navbar-inner {
+    padding: 5px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003374}}
+  .navbar .container {
+    width: auto;
+    padding: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003378}}
+  .navbar .brand {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 0 0 -5px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003383}}
+  .navbar .nav-collapse {
+    clear: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003386}}
+  .navbar .nav {
+    float: none;
+    margin: 0 0 9px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003390}}
+  .navbar .nav > li {
+    float: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003393}}
+  .navbar .nav > li > a {
+    margin-bottom: 2px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003396}}
+  .navbar .nav > .divider-vertical {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003399}}
+  .navbar .nav .nav-header {
+    color: #999999;
+    text-shadow: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003404}}
+  .navbar .nav > li > a,
+  .navbar .dropdown-menu a {
+    padding: 6px 15px;
+    font-weight: bold;
+    color: #999999;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003412}}
+  .navbar .dropdown-menu li + li a {
+    margin-bottom: 2px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003416}}
+  .navbar .nav > li > a:hover,
+  .navbar .dropdown-menu a:hover {
+    background-color: #222222;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003419}}
+  .navbar .dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    float: none;
+    display: block;
+    max-width: none;
+    margin: 0 15px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003438}}
+  .navbar .dropdown-menu:before,
+  .navbar .dropdown-menu:after {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003441}}
+  .navbar .dropdown-menu .divider {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003445}}
+  .navbar-form,
+  .navbar-search {
+    float: none;
+    padding: 9px 15px;
+    margin: 9px 0;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003455}}
+  .navbar .nav.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003459}}
+  .navbar-static .navbar-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003463}}
+  .btn-navbar {
+    display: block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003466}}
+  .nav-collapse {
+    overflow: hidden;
+    height: 0;
+  }
+}
+@media (min-width: 980px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003472}}
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+@media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003478}}
+  .row {
+    margin-left: -30px;
+    *zoom: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003483}}
+  .row:before,
+  .row:after {
+    display: table;
+    content: "";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003487}}
+  .row:after {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003490}}
+  [class*="span"] {
+    float: left;
+    margin-left: 30px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003496}}
+  .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    width: 1170px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003499}}
+  .span12 {
+    width: 1170px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003502}}
+  .span11 {
+    width: 1070px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003505}}
+  .span10 {
+    width: 970px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003508}}
+  .span9 {
+    width: 870px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003511}}
+  .span8 {
+    width: 770px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003514}}
+  .span7 {
+    width: 670px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003517}}
+  .span6 {
+    width: 570px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003520}}
+  .span5 {
+    width: 470px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003523}}
+  .span4 {
+    width: 370px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003526}}
+  .span3 {
+    width: 270px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003529}}
+  .span2 {
+    width: 170px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003532}}
+  .span1 {
+    width: 70px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003535}}
+  .offset12 {
+    margin-left: 1230px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003538}}
+  .offset11 {
+    margin-left: 1130px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003541}}
+  .offset10 {
+    margin-left: 1030px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003544}}
+  .offset9 {
+    margin-left: 930px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003547}}
+  .offset8 {
+    margin-left: 830px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003550}}
+  .offset7 {
+    margin-left: 730px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003553}}
+  .offset6 {
+    margin-left: 630px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003556}}
+  .offset5 {
+    margin-left: 530px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003559}}
+  .offset4 {
+    margin-left: 430px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003562}}
+  .offset3 {
+    margin-left: 330px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003565}}
+  .offset2 {
+    margin-left: 230px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003568}}
+  .offset1 {
+    margin-left: 130px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003571}}
+  .row-fluid {
+    width: 100%;
+    *zoom: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003576}}
+  .row-fluid:before,
+  .row-fluid:after {
+    display: table;
+    content: "";
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003580}}
+  .row-fluid:after {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003583}}
+  .row-fluid > [class*="span"] {
+    float: left;
+    margin-left: 2.564102564%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003587}}
+  .row-fluid > [class*="span"]:first-child {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003590}}
+  .row-fluid > .span12 {
+    width: 100%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003593}}
+  .row-fluid > .span11 {
+    width: 91.45299145300001%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003596}}
+  .row-fluid > .span10 {
+    width: 82.905982906%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003599}}
+  .row-fluid > .span9 {
+    width: 74.358974359%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003602}}
+  .row-fluid > .span8 {
+    width: 65.81196581200001%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003605}}
+  .row-fluid > .span7 {
+    width: 57.264957265%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003608}}
+  .row-fluid > .span6 {
+    width: 48.717948718%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003611}}
+  .row-fluid > .span5 {
+    width: 40.170940171000005%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003614}}
+  .row-fluid > .span4 {
+    width: 31.623931624%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003617}}
+  .row-fluid > .span3 {
+    width: 23.076923077%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003620}}
+  .row-fluid > .span2 {
+    width: 14.529914530000001%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003623}}
+  .row-fluid > .span1 {
+    width: 5.982905983%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003628}}
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003631}}
+  input.span12, textarea.span12, .uneditable-input.span12 {
+    width: 1160px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003634}}
+  input.span11, textarea.span11, .uneditable-input.span11 {
+    width: 1060px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003637}}
+  input.span10, textarea.span10, .uneditable-input.span10 {
+    width: 960px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003640}}
+  input.span9, textarea.span9, .uneditable-input.span9 {
+    width: 860px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003643}}
+  input.span8, textarea.span8, .uneditable-input.span8 {
+    width: 760px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003646}}
+  input.span7, textarea.span7, .uneditable-input.span7 {
+    width: 660px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003649}}
+  input.span6, textarea.span6, .uneditable-input.span6 {
+    width: 560px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003652}}
+  input.span5, textarea.span5, .uneditable-input.span5 {
+    width: 460px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003655}}
+  input.span4, textarea.span4, .uneditable-input.span4 {
+    width: 360px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003658}}
+  input.span3, textarea.span3, .uneditable-input.span3 {
+    width: 260px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003661}}
+  input.span2, textarea.span2, .uneditable-input.span2 {
+    width: 160px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003664}}
+  input.span1, textarea.span1, .uneditable-input.span1 {
+    width: 60px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003667}}
+  .thumbnails {
+    margin-left: -30px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/maksimrv\/Dropbox\/home\/projects\/github\/vim-beautifier\/assets\/sass\/bootstrap-responsive\.scss}line{font-family:\00003670}}
+  .thumbnails > li {
+    margin-left: 30px;
+  }
+}
