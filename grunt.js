@@ -8,13 +8,32 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        pkg: {
-            name: 'beautify'
+        /**
+         * Meta information about plugin.
+         */
+        meta: {
+            name: 'vim-jsbeautify',
+            website: 'github.com',
+            author: 'Maksim Ryzhikov',
+            version: '1.0.0',
+            banner: '<%= meta.name %> - v<%= meta.version %> - ' + /**/
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' + /**/
+            '---------------------------------------------------\n' + /**/
+            '[![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)',
+            footer: '\n[Website](http://<%=meta.website%>/)\n\n' + /**/
+            'Copyright (c) <%= grunt.template.today("yyyy") %> ' + /**/
+            '<%=meta.author%>; Licensed MIT'
+        },
+        concat: {
+            dist: {
+                src: ['<banner:meta.banner>', 'doc/About.*.markdown', 'doc/Installation.*.markdown', 'doc/Configuration.*.markdown', 'doc/Usage.*.markdown', '<banner:meta.footer>'],
+                dest: 'README.markdown'
+            }
         },
         min: {
             dist: {
-                src: ['plugin/<%= pkg.name %>.js'],
-                dest: 'plugin/<%= pkg.name %>.min.js'
+                src: ['plugin/beautify.js'],
+                dest: 'plugin/beautify.min.js'
             }
         },
         test: {

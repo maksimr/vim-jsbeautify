@@ -1,109 +1,136 @@
-vim-jsbeautify.vim
-============
-
+vim-jsbeautify - v1.0.0 - 2012-08-15
+---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
-## About
-This plugin uses [jsbeautifier](http://jsbeautifier.org/) to format javascript, html and css files.
-To use it you must install either [nodejs](http://nodejs.org/) or [google v8 javascript engine](http://code.google.com/p/v8/).
-There is also an integration with [editorconfig](http://editorconfig.org/).
-
-Any requests, suggestions and bug reports are welcome.
-
-Installation
+Описание
 ------------
 
-### With Pathogen
+Это расширение позволяет вам использовать [jsbeautifier](http://jsbeautifier.org/)
+внутри vim-а, что позволит вам быстро отформатировать javascript, html и css файлы.
+А также с версии 1.0 имеет поддержку [editorconfig](http://editorconfig.org/) файла.
+
+Любые замечания, исправления и пожелания только приветствуются.
+
+Установка
+------------
+
+### Зависимости
+Для того чтобы использовать это расширение вам необходимо
+будет установить один из javascript интерпретаторов
+[nodejs](http://nodejs.org/) или [v8](http://code.google.com/p/v8/).
+
+### Установка используя pathogen
+
+```bash
+
+  cd ~/.vim/bundle
+  git clone https://github.com/maksimr/vim-jsbeautify.git
+  cd vim-jsbeautify && git submodule update --init --recursive
 
 ```
-cd ~/.vim/bundle
-git clone https://github.com/maksimr/vim-jsbeautify.git
-cd vim-jsbeautify && git submodule update --init --recursive
-```
 
-### With Vundle
-Add this to .vimrc:
+### Установка используя vundle
+
+Просто добавьте одну строчку в ваш .vimrc.
 
 ```vim
 
   Bundle 'maksimr/vim-jsbeautify'
 
-  " and go to plugin direcotory and run git submodule foreach git pull
-
-```
-or (recomended)
-
-```vim
-
-  Bundle 'maksimr/vim-jsbeautify'
-  Bundle 'einars/js-beautify'
-
-  " set path to js-beautify file
-  let s:rootDir = fnamemodify(expand("<sfile>"), ":h")
-  let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
-  let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
-  let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
-
 ```
 
-Configuration
+Также необходимо будет после установки расширения, перейти в его папку
+и выполнить ```git submodule update --init --recursive``` или указать
+при настройке путь до внешнего файла форматирования (будет показано ниже).
+
+Настройка
 -------------
 
-Configuration jsbeautify
+В версии 1.0 вся настройка ведется через файл .editorconfig.
+Этот файл может находится либо в корневой папке пользователя ```~/.editorconfig```,
+либо в папке .vim ```~/.vim/.editorconfig```.
 
-```vim
-  ".vimrc
+Настройки берутся из секций [**.js], [**.css] и [**.html]. Внутри этих
+секций можно использовать специальный комментарий ```;vim:```, но такой комментарий
+может быть использован только для глобальной настройки.
 
-  let g:jsbeautify = {'indent_size': 4, 'indent_char': '\t'}
-  let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
-  let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
+Так же можно настраивать через переменную ```g:config_Beautifier```, но лучше использовать .editorconfig файл.
 
+
+### Примеры
+
+```editorconfig
+  ".editorconfig
+
+  root = true
+
+  [**.js]
+  indent_style = space
+  indent_size = 4
+
+  [**.css]
+  indent_style = space
+  indent_size = 4
+
+  [**.html]
+  indent_style = space
+  indent_size = 4
+  max_char = 78
+  brace_style = expand
 
 ```
 
-Run on v8
+```editorconfig
+  ".editorconfig
 
-```vim
-  ".vimrc
+  root = true
 
-  " by default
-  let g:jsbeautify_engine = "node"
+  [**.js]
+  ; Путь до внешнего файла форматирования
+  ; по умолчанию берется из папки lib внутри папки расширения.
+  path=~/.vim/bundle/js-beautify/beautify.js
+  ; Javascript интерпритатор который необходимо вызвать
+  ; по умолчанию 'node'
+  bin=node
+  indent_style = space
+  indent_size = 4
 
-  " If you bin name for node is nodejs
-  let g:jsbeautify_engine = "nodejs"
+  [**.css]
+  path=~/.vim/bundle/js-beautify/beautify-css.js
+  indent_style = space
+  indent_size = 4
 
-  let g:jsbeautify_engine = "v8"
-
-  " or if you have other alias
-  let g:jsbeautify_engine = "v8-alias"
+  [**.html]
+  ; Используя спейиальные коментарии
+  ; такие комментраии применятся только при глобальной настройке
+  ; поэтому лучше избегать их
+  ;vim:path=~/.vim/bundle/js-beautify/beautify-html.js
+  ;vim:max_char=78:brace_style=expand
+  indent_style = space
+  indent_size = 4
 
 ```
 
-Usage
+Использование
+-------------
 
 ```vim
   ".vimrc
 
   map <c-f> :call JsBeautify()<cr>
-  " or
+  " или
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-  " for html
+  " для html
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-  " for css or scss
+  " для css или scss
   autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 ```
 
-Function JsBeautify takes two parameters. First `start line` second `end line`,
-by default `start line` equal '0' and `end line` equal '$'
+Функция JsBeautify принимает два параметра, это номера начальной и конечной линии.
+По умолчанию 0 и '$'.
 
-##VERSIONS
 
-* 0.1.1: Fix bug with escape in shell
-* 0.1.2: Add support html beautifier and global function Beautify(type,start_line, end_line) where type is js, html or css, all params optional
-* 0.1.3: Add support css beautifier
-* 0.1.4: Add tests (thanks @benja2729 fix issue #1)
-* 0.1.5: Add intergration with [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim#readme).
-More about [editorconfig](http://editorconfig.org/)
+[Website](http://github.com/)
 
-(version: 0.1.5)
+Copyright (c) 2012 Maksim Ryzhikov; Licensed MIT
