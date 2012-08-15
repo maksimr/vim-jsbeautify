@@ -19,7 +19,7 @@ To use this extension you need
 will install one of the javascript interpreter
 [nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
 
-### Установка используя pathogen
+### Installing using pathogen
 
 ```bash
 
