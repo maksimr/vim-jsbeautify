@@ -2,22 +2,22 @@ vim-jsbeautify - v1.0.0 - 2012-08-15
 ---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
-Описание
+Description
 ------------
 
-Это расширение позволяет вам использовать [jsbeautifier](http://jsbeautifier.org/)
-внутри vim-а, что позволит вам быстро отформатировать javascript, html и css файлы.
-А также с версии 1.0 имеет поддержку [editorconfig](http://editorconfig.org/) файла.
+This extension allows you to use the [jsbeautifier] (http://jsbeautifier.org/)
+inside vim-and that will allow you to quickly format javascript, html and css files.
+And with version 1.0 has support [editorconfig] (http://editorconfig.org/) file.
 
-Любые замечания, исправления и пожелания только приветствуются.
+Any comments, corrections and suggestions are welcome.
 
-Установка
+Installation
 ------------
 
-### Зависимости
-Для того чтобы использовать это расширение вам необходимо
-будет установить один из javascript интерпретаторов
-[nodejs](http://nodejs.org/) или [v8](http://code.google.com/p/v8/).
+### Dependencies
+To use this extension you need
+will install one of the javascript interpreter
+[nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
 
 ### Установка используя pathogen
 
@@ -29,35 +29,34 @@ vim-jsbeautify - v1.0.0 - 2012-08-15
 
 ```
 
-### Установка используя vundle
+### Installing using vundle
 
-Просто добавьте одну строчку в ваш .vimrc.
+Simply add a line to your .vimrc.
 
 ```vim
 
   Bundle 'maksimr/vim-jsbeautify'
 
 ```
+Also need to be installed after the expansion, go to its folder
+and perform ```git submodule update - init - recursive ``` or specify
+when you set up the path to the external file format (shown below).
 
-Также необходимо будет после установки расширения, перейти в его папку
-и выполнить ```git submodule update --init --recursive``` или указать
-при настройке путь до внешнего файла форматирования (будет показано ниже).
-
-Настройка
+Setting
 -------------
 
-В версии 1.0 вся настройка ведется через файл .editorconfig.
-Этот файл может находится либо в корневой папке пользователя ```~/.editorconfig```,
-либо в папке .vim ```~/.vim/.editorconfig```.
+In version 1.0, all configuration is done through a file. Editorconfig.
+This file can be located either in the root folder for the user `` `~ /. Editorconfig ```,
+or in a folder. vim `` `~ / .vim / .editorconfig ```.
 
-Настройки берутся из секций [\*\*.js], [\*\*.css] и [\*\*.html]. Внутри этих
-секций можно использовать специальный комментарий ```;vim:```, но такой комментарий
-может быть использован только для глобальной настройки.
+Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
+sections can use a special comment ```; vim: ```, but this comment
+can be used only for the global settings.
 
-Так же можно настраивать через переменную ```g:config_Beautifier```, но лучше использовать .editorconfig файл.
+You can also configure a variable ```g: config_Beautifier ```, but it is better to use. Editorconfig file.
 
 
-### Примеры
+### Examples
 
 ```editorconfig
   ".editorconfig
@@ -86,11 +85,10 @@ vim-jsbeautify - v1.0.0 - 2012-08-15
   root = true
 
   [**.js]
-  ; Путь до внешнего файла форматирования
-  ; по умолчанию берется из папки lib внутри папки расширения.
+  ; Path to the external file format
+  ; The default is taken from the lib folder inside the folder extension.
   path=~/.vim/bundle/js-beautify/beautify.js
-  ; Javascript интерпритатор который необходимо вызвать
-  ; по умолчанию 'node'
+  ; Javascript interpreter to be invoked by default 'node'
   bin=node
   indent_style = space
   indent_size = 4
@@ -101,9 +99,9 @@ vim-jsbeautify - v1.0.0 - 2012-08-15
   indent_size = 4
 
   [**.html]
-  ; Используя спейиальные коментарии
-  ; такие комментраии применятся только при глобальной настройке
-  ; поэтому лучше избегать их
+  ; Using special comments
+  ; And such comments or apply only in global configuration
+  ; So it's best to avoid them
   ;vim:path=~/.vim/bundle/js-beautify/beautify-html.js
   ;vim:max_char=78:brace_style=expand
   indent_style = space
@@ -111,24 +109,24 @@ vim-jsbeautify - v1.0.0 - 2012-08-15
 
 ```
 
-Использование
+Usage
 -------------
 
 ```vim
   ".vimrc
 
   map <c-f> :call JsBeautify()<cr>
-  " или
+  " or
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-  " для html
+  " for html
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-  " для css или scss
+  " for css or scss
   autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 ```
 
-Функция JsBeautify принимает два параметра, это номера начальной и конечной линии.
-По умолчанию 0 и '$'.
+JsBeautify function takes two parameters, this number of start and end lines.
+Default is 0 and '$'.
 
 
 [Website](http://github.com/)
