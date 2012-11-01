@@ -54,7 +54,7 @@ Configuration jsbeautify
 ```vim
   ".vimrc
 
-  let g:jsbeautify = {'indent_size': 4, 'indent_char': '\t'}
+  let g:jsbeautify = {'indent_size': 1, 'indent_char': '\t'}
   let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
   let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
 
