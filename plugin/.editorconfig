@@ -1,0 +1,14 @@
+root = true
+
+[**.js]
+indent_style = space
+indent_size = 4
+
+[**.css]
+indent_style = space
+indent_size = 4
+
+[**.html]
+;vim:max_char=78:brace_style=expand
+indent_style = space
+indent_size = 4
