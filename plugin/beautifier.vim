@@ -326,6 +326,38 @@ try
   call editorconfig#AddNewHook(BeautifierHook)
 endt
 
+"XXX: legacy block code
+"yet retain support old config
+fun! WarningMsg()
+  echohl WarningMsg
+  echo 'beautifier.vim#Please use .editorconfig for default settings'
+endfun
+
+if exists('g:jsbeautify')
+  let g:config_Beautifier['js'] = g:jsbeautify
+  if exists('g:jsbeautify_file')
+    let g:config_Beautifier['js']['path'] = g:jsbeautify_file
+  endif
+  call WarningMsg()
+endif
+
+if exists('g:htmlbeautify')
+  let g:config_Beautifier['html'] = g:htmlbeautify
+  if exists('g:htmlbeautify_file')
+    let g:config_Beautifier['html']['path'] = g:htmlbeautify_file
+  endif
+  call WarningMsg()
+endif
+
+if exists('g:htmlbeautify')
+  let g:config_Beautifier['css'] = g:cssbeautify
+  if exists('g:cssbeautify_file')
+    let g:config_Beautifier['css']['path'] = g:cssbeautify_file
+  endif
+  call WarningMsg()
+endif
+"XXX: end
+
 " If user doesn't set config_Beautifier in
 " .vimrc then look up it in .editorconfig
 if empty(g:config_Beautifier)
