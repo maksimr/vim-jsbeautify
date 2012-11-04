@@ -324,6 +324,7 @@ endfun
 try
   let BeautifierHook = function('BeautifierEditorconfigHook')
   call editorconfig#AddNewHook(BeautifierHook)
+catch
 endt
 
 "XXX: legacy block code
