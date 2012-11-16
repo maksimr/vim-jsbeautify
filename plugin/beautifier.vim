@@ -94,13 +94,13 @@ func! s:processingEditconfigFile(content)
         let l:copts = split(strpart(line, 5), ':')
 
         for part in l:copts
-          let data = split(part, '=')
+          let data = split(part, '\s*=\s*')
           let l:value[get(data, 0)] = get(data, 1)
         endfor
       else
         " else we assumes that it is
         " .editorconfig setting
-        let data = split(line, '=')
+        let data = split(line, '\s*=\s*')
         let l:value[get(data, 0)] = get(data, 1)
       endif
 
