@@ -1,4 +1,4 @@
-vim-jsbeautify - v1.0.0 - 2012-08-15
+vim-jsbeautify - v1.0.0 - 2012-11-28
 ---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
@@ -46,8 +46,8 @@ Setting
 -------------
 
 In version 1.0, all configuration is done through a file. Editorconfig.
-This file can be located either in the root folder for the user `` `~ /. Editorconfig ```,
-or in a folder. vim `` `~ / .vim / .editorconfig ```.
+This file can be located either in the root folder for the user ```~ /. Editorconfig ```,
+or in a folder. vim ```~ / .vim / .editorconfig ```.
 
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
 sections can use a special comment ```; vim: ```, but this comment

@@ -26,10 +26,10 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: [{
-                src: ['<banner:meta.banner>', 'doc/ru/About.*.markdown', 'doc/ru/Installation.*.markdown', 'doc/ru/Configuration.*.markdown', 'doc/ru/Usage.*.markdown', '<banner:meta.footer>'],
+                src: ['<banner:meta.banner>', 'docs/ru/About.*.markdown', 'docs/ru/Installation.*.markdown', 'docs/ru/Configuration.*.markdown', 'docs/ru/Usage.*.markdown', '<banner:meta.footer>'],
                 dest: 'README_RUS.markdown'
             }, {
-                src: ['<banner:meta.banner>', 'doc/en/About.*.markdown', 'doc/en/Installation.*.markdown', 'doc/en/Configuration.*.markdown', 'doc/en/Usage.*.markdown', '<banner:meta.footer>'],
+                src: ['<banner:meta.banner>', 'docs/en/About.*.markdown', 'docs/en/Installation.*.markdown', 'docs/en/Configuration.*.markdown', 'docs/en/Usage.*.markdown', '<banner:meta.footer>'],
                 dest: 'README.markdown'
             }]
         },

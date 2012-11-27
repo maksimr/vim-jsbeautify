@@ -2,8 +2,8 @@ Setting
 -------------
 
 In version 1.0, all configuration is done through a file. Editorconfig.
-This file can be located either in the root folder for the user `` `~ /. Editorconfig ```,
-or in a folder. vim `` `~ / .vim / .editorconfig ```.
+This file can be located either in the root folder for the user ```~ /. Editorconfig ```,
+or in a folder. vim ```~ / .vim / .editorconfig ```.
 
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
 sections can use a special comment ```; vim: ```, but this comment

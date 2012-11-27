@@ -1,4 +1,4 @@
-vim-jsbeautify - v1.0.0 - 2012-08-15
+vim-jsbeautify - v1.0.0 - 2012-11-28
 ---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
