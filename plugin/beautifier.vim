@@ -199,7 +199,7 @@ endfunction
 " by default '$'
 func! Beautifier(...)
   if !exists('b:config_Beautifier')
-    return 1
+    call s:updateConfig(g:config_Beautifier)
   endif
 
   " Define type of file
