@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# test_03
+# It should format html file
+# with default settings
+
+TMP_FILE='_tmp'
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'silent call HtmlBeautify()' | w | q | q" $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+#clean
+if [ -f $TMP_FILE ]
+then
+  rm $TMP_FILE
+fi
+
+clear
+
+[ "$RESULT" = "$(cat expected)" ]

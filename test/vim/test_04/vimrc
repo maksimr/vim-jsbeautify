@@ -1,0 +1,14 @@
+" vim -u vimrc
+set nocompatible
+
+set nowrap
+
+let root = '~/.vim/bundle'
+
+filetype off
+syntax on
+
+let g:editorconfig_Beautifier = expand("<sfile>:p:h").'/.editorconfig'
+
+runtime macros/matchit.vim
+exec 'set rtp+='.root.'/vim-jsbeautify'

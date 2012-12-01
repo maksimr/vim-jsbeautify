@@ -1,4 +1,4 @@
-vim-jsbeautify - v1.0.0 - 2012-11-28
+vim-jsbeautify - v1.0.1 - 2012-12-01
 ---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
@@ -46,7 +46,7 @@ Setting
 -------------
 
 In version 1.0, all configuration is done through a file. Editorconfig.
-This file can be located either in the root folder for the user ```~ /. Editorconfig ```,
+This file can be located either in the root folder for the user ```~ /. editorconfig ```,
 or in a folder. vim ```~ / .vim / .editorconfig ```.
 
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
@@ -125,10 +125,42 @@ Usage
 
 ```
 
-JsBeautify function takes two parameters, this number of start and end lines.
-Default is 0 and '$'.
+JsBeautify function takes two parameters, this number of start and end lines by
+default they are stet to 0 and '$'.
 
+## Running tests
+Tests are written in [Urchin](http://www.urchin.sh) for vim files and build in [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
+Install Urchin like so.
 
-[Website](http://github.com/)
+    wget -O /usr/local/bin https://raw.github.com/scraperwiki/urchin/0c6837cfbdd0963903bf0463b05160c2aecc22ef/urchin
+    chmod +x /usr/local/bin/urchin
 
-Copyright (c) 2012 Maksim Ryzhikov; Licensed MIT
+(Or put it some other place in your PATH.)
+
+There are vim tests and javascript tests.
+The vim tests are written in Urchin.
+
+    urchin test/vim
+
+    or
+
+    grunt urchin
+
+To start javascript tests run:
+
+    grunt test
+
+For run all tests simple type:
+
+    grunt
+
+All commands you should run from plugin directory.
+
+Thanks for assistance:
+
++ [@stonelee](https://github.com/stonelee)
+
+## License
+
+Licensed MIT
+Copyright (c) 2012 Maksim Ryzhikov;

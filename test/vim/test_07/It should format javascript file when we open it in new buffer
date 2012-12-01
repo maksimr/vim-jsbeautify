@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# test_07
+# It should format javascript file
+# when we open it in new buffer
+# with default settings
+
+TMP_FILE='_tmp'
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'bnext' | execute 'silent call JsBeautify()' | w | q | q" cap $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+#clean
+if [ -f $TMP_FILE ]
+then
+  rm $TMP_FILE
+fi
+
+clear
+
+[ "$RESULT" = "$(cat expected)" ]

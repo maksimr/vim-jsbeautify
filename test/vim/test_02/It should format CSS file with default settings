@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# test_02
+# It should format css file
+# with default settings
+
+TMP_FILE='_tmp'
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'silent call CSSBeautify()' | w | q | q" $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+#clean
+if [ -f $TMP_FILE ]
+then
+  rm $TMP_FILE
+fi
+
+clear
+
+[ "$RESULT" = "$(cat expected)" ]

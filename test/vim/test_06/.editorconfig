@@ -1,0 +1,9 @@
+root = true
+
+[**.html]
+
+indent_style = space
+indent_size = 2
+brace_style = expand
+max_char = 78
+unformatted = ["a", "sub", "sup", "b", "i", "u"]

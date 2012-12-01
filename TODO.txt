@@ -1,1 +1,0 @@
-* Write test on vim plugin (issue 6)

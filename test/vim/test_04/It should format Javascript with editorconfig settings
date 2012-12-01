@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# test_04
+# It should format javascript file
+# with settings from .editorconfig
+
+TMP_FILE='_tmp'
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'silent call JsBeautify()' | w | q | q" $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+#clean
+if [ -f $TMP_FILE ]
+then
+  rm $TMP_FILE
+fi
+
+clear
+
+[ "$RESULT" = "$(cat expected)" ]

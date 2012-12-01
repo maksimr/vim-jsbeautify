@@ -1,0 +1,9 @@
+root = true
+
+[**.js]
+
+indent_style = space
+indent_size = 2
+jslint_happy = 1
+keep_array_indentation = 1
+space_before_conditional = 1

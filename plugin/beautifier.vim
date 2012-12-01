@@ -16,6 +16,10 @@ if !exists('g:config_Beautifier')
   let g:config_Beautifier = {}
 endif
 
+if !exists('g:editorconfig_Beautifier')
+  let g:editorconfig_Beautifier = ''
+endif
+
 " temporary file for content
 if !exists('g:tmp_file_Beautifier')
   let g:tmp_file_Beautifier = fnameescape(tempname())
@@ -26,6 +30,28 @@ endif
 "% Helper functions and variables
 let s:plugin_Root_direcoty = fnamemodify(expand("<sfile>"), ":h")
 let s:paths_Editorconfig = map(['~/.editorconfig', '~/.vim/.editorconfig', s:plugin_Root_direcoty.'/.editorconfig'], 'expand(v:val)')
+
+" Function for debugging
+" @param {Any} content Any type which will be converted
+" to string and write to tmp file
+func! s:console(content)
+  let log_dir = fnameescape('/tmp/vimlog')
+  call writefile([string(a:content)], log_dir)
+  return 1
+endfun
+
+" Output warning message
+" @param {Any} message The warning message
+fun! WarningMsg(message)
+  echohl WarningMsg
+  echo string(a:message)
+endfun
+
+" Output error message
+" @param {Any} message The error message
+fun! ErrorMsg(message)
+  echoerr string(a:message)
+endfun
 
 " Check type of files
 " @param {String} type The verified type
@@ -168,12 +194,13 @@ function BeautifierApplyConfig(...)
   "
   " Если нам передали путь то не стоит его
   " тут проверять на сушествование
-  if !exists(l:filepath)
+  if empty(l:filepath)
     let l:filepath = get(filter(copy(s:paths_Editorconfig),'filereadable(v:val)'), 0)
   endif
 
   if !filereadable(l:filepath)
     " File doesn't exist then return '1'
+    call WarningMsg('Can not find global .editorconfig file!')
     return 1
   endif
 
@@ -199,7 +226,7 @@ endfunction
 " by default '$'
 func! Beautifier(...)
   if !exists('b:config_Beautifier')
-    return 1
+    call s:updateConfig(g:config_Beautifier)
   endif
 
   " Define type of file
@@ -207,6 +234,7 @@ func! Beautifier(...)
   let allowedTypes = get(b:config_Beautifier[type], 'extensions')
 
   if !s:isAllowedType(type, allowedTypes)
+    call WarningMsg('File type is not allowed!')
     return 1
   endif
 
@@ -229,8 +257,7 @@ func! Beautifier(...)
   let lines_length = len(getline(line1, line2))
 
   " Write content to temporary file
-  call writefile(content, g:tmp_file_Beautifier)
-
+  call writefile(content, g:tmp_file_Beautifier) 
   " String arguments which will be passed
   " to external command
 
@@ -243,10 +270,13 @@ func! Beautifier(...)
   let path_Beautifier_arg = s:quote(path)
   let tmp_file_Beautifier_arg = s:quote(g:tmp_file_Beautifier)
 
+
+
   if executable(engine)
     let result = system(engine." ".fnameescape(s:plugin_Root_direcoty."/beautify.min.js")." --js_arguments ".tmp_file_Beautifier_arg." ".opts_Beautifier_arg." ".path_Beautifier_arg)
   else
     " Executable bin doesn't exist
+    call ErrorMsg('The '.engine.' is not executable!')
     return 1
   endif
 
@@ -270,9 +300,14 @@ func! BeautifierEditorconfigHook(config)
   let type = expand('%:e')
   let config = a:config
 
-  if !(type(config) == 4 && s:isAllowedType(type))
+  if !(type(config) == 4)
     return 1
   endif
+
+  if !s:isAllowedType(type)
+    return 1
+  endif
+
 
   " If buffer config variable does not exist
   " then let it
@@ -286,12 +321,13 @@ func! BeautifierEditorconfigHook(config)
   endif
 
   if empty(get(b:config_Beautifier, type))
+    call WarningMsg('Type '.type.' is not presented in config')
     return 1
   endif
 
   let config = extend(b:config_Beautifier[type], config)
 
-  if has_key(config, 'indent_size')
+  if has_key(config, 'indent_style')
     if config["indent_style"] == 'space'
       let config["indent_char"] = ' '
     elseif config["indent_style"] == 'tab'
@@ -329,9 +365,8 @@ endt
 
 "XXX: legacy block code
 "yet retain support old config
-fun! WarningMsg()
-  echohl WarningMsg
-  echo 'beautifier.vim#Please use .editorconfig for default settings'
+fun! LegacyMsg()
+  call WarningMsg('beautifier.vim#Please use .editorconfig for default settings')
 endfun
 
 if exists('g:jsbeautify')
@@ -339,7 +374,7 @@ if exists('g:jsbeautify')
   if exists('g:jsbeautify_file')
     let g:config_Beautifier['js']['path'] = g:jsbeautify_file
   endif
-  call WarningMsg()
+  call LegacyMsg()
 endif
 
 if exists('g:htmlbeautify')
@@ -347,7 +382,7 @@ if exists('g:htmlbeautify')
   if exists('g:htmlbeautify_file')
     let g:config_Beautifier['html']['path'] = g:htmlbeautify_file
   endif
-  call WarningMsg()
+  call LegacyMsg()
 endif
 
 if exists('g:htmlbeautify')
@@ -355,12 +390,12 @@ if exists('g:htmlbeautify')
   if exists('g:cssbeautify_file')
     let g:config_Beautifier['css']['path'] = g:cssbeautify_file
   endif
-  call WarningMsg()
+  call LegacyMsg()
 endif
 "XXX: end
 
 " If user doesn't set config_Beautifier in
 " .vimrc then look up it in .editorconfig
 if empty(g:config_Beautifier)
-  call BeautifierApplyConfig()
+  call BeautifierApplyConfig(g:editorconfig_Beautifier)
 endif

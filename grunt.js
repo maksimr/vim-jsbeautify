@@ -8,30 +8,8 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        /**
-         * Meta information about plugin.
-         */
-        meta: {
-            name: 'vim-jsbeautify',
-            website: 'github.com',
-            author: 'Maksim Ryzhikov',
-            version: '1.0.0',
-            banner: '<%= meta.name %> - v<%= meta.version %> - ' + /**/
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' + /**/
-            '---------------------------------------------------\n' + /**/
-            '[![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)',
-            footer: '\n[Website](http://<%=meta.website%>/)\n\n' + /**/
-            'Copyright (c) <%= grunt.template.today("yyyy") %> ' + /**/
-            '<%=meta.author%>; Licensed MIT'
-        },
-        concat: {
-            dist: [{
-                src: ['<banner:meta.banner>', 'docs/ru/About.*.markdown', 'docs/ru/Installation.*.markdown', 'docs/ru/Configuration.*.markdown', 'docs/ru/Usage.*.markdown', '<banner:meta.footer>'],
-                dest: 'README_RUS.markdown'
-            }, {
-                src: ['<banner:meta.banner>', 'docs/en/About.*.markdown', 'docs/en/Installation.*.markdown', 'docs/en/Configuration.*.markdown', 'docs/en/Usage.*.markdown', '<banner:meta.footer>'],
-                dest: 'README.markdown'
-            }]
+        urchin: {
+            args: ['-f', 'test']
         },
         min: {
             dist: {
@@ -40,14 +18,20 @@ module.exports = function(grunt) {
             }
         },
         test: {
-            files: ['plugin/tests/*_test.js']
+            files: ['test/javascript/*_test.js']
         },
         lint: {
             files: ['grunt.js', 'plugin/*js', '<config:test.files>']
         },
         watch: {
-            files: '<config:lint.files>',
-            tasks: 'test'
+            vim: {
+                files: ['plugin/*.vim', 'test/**/*.sh'],
+                tasks: 'urchin'
+            },
+            javascript: {
+                files: ['plugin/*.js', '<config:test.files>'],
+                tasks: 'test'
+            }
         },
         jshint: {
             options: {
@@ -67,47 +51,34 @@ module.exports = function(grunt) {
                 exports: true,
                 module: false
             }
-        },
-        uglify: {}
-    });
-
-    grunt.registerMultiTask('concat', 'Concatenate files.', function() {
-        var _concat = function(file) {
-            var files = grunt.file.expandFiles(file.src);
-            //Concat specified files.
-            var src = grunt.helper('concat', files, {
-                separator: this.data.separator
-            });
-            grunt.file.write(file.dest, src);
-        };
-
-        if (Array.isArray(this.data)) {
-            this.data.forEach(_concat.bind(this));
-        } else {
-            _concat.call(this, this.file);
         }
-
-        // Fail task if errors were logged.
-        if (this.errorCount) {
-            return false;
-        }
-
-        // Otherwise, print a success message.
-        grunt.log.writeln('File "' + this.file.dest + '" created.');
     });
+    grunt.registerTask('urchin', 'Urchin is a test framework for shell. It currently supports bash on GNU/Linux and Mac.', function(options) {
+        var data = grunt.config('urchin');
+        var utils = grunt.utils;
+        var verbose = grunt.verbose;
+        var args = data.args;
+        var log = grunt.log;
+        var done = this.async();
 
-    grunt.registerHelper('concat', function(files, options) {
-        options = grunt.utils._.defaults(options || {}, {
-            separator: grunt.utils.linefeed
+        utils.spawn({
+            cmd: 'urchin',
+            args: args
+        }, function(err, result, code) {
+            if (!err) {
+                result.split('\n').forEach(log.writeln, log);
+                return done(null);
+            }
 
+            // error handling
+            verbose.or.writeln();
+            log.write('Running urchin...').error();
+            result.split('\n').forEach(log.error, log);
+            done(code);
         });
-        return files ? files.map(function(filepath) {
-            return grunt.task.directive(filepath, grunt.file.read);
-
-        }).join(grunt.utils.normalizelf(options.separator)) : '';
     });
-
 
     // Default task.
-    grunt.registerTask('default', 'test min');
+    grunt.registerTask('default', 'test urchin');
+    grunt.registerTask('build', 'lint urchin test min');
 };

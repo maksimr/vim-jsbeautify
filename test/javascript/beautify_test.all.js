@@ -19,7 +19,7 @@
          */
         testCase = {
             'beautify JS': function(test) {
-                var contentPath = 'plugin/tests/templates/test.js',
+                var contentPath = 'test/javascript/templates/test.js',
                     command = this.command;
 
                 test.expect(1);
@@ -35,7 +35,7 @@
                 });
             },
             'beautify JS with options': function(test) {
-                var contentPath = 'plugin/tests/templates/test.js',
+                var contentPath = 'test/javascript/templates/test.js',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
@@ -53,7 +53,7 @@
                 });
             },
             'beautify HTML': function(test) {
-                var contentPath = 'plugin/tests/templates/test.html',
+                var contentPath = 'test/javascript/templates/test.html',
                     command = this.command;
 
                 test.expect(1);
@@ -69,7 +69,7 @@
                 });
             },
             'beautify HTML with options': function(test) {
-                var contentPath = 'plugin/tests/templates/test.html',
+                var contentPath = 'test/javascript/templates/test.html',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
@@ -87,7 +87,7 @@
                 });
             },
             'beautify CSS': function(test) {
-                var contentPath = 'plugin/tests/templates/test.css',
+                var contentPath = 'test/javascript/templates/test.css',
                     command = this.command;
 
                 test.expect(1);
@@ -103,7 +103,7 @@
                 });
             },
             'beautify CSS with options': function(test) {
-                var contentPath = 'plugin/tests/templates/test.css',
+                var contentPath = 'test/javascript/templates/test.css',
                     command = this.command,
                     options = '{"indent_size": 2, "indent_char": "\t"}';
 
