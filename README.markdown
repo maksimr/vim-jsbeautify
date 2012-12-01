@@ -58,6 +58,8 @@ You can also configure a variable ```g: config_Beautifier ```, but it is better 
 
 ### Examples
 
+A simple example of .editorconfig file:
+
 ```editorconfig
   ".editorconfig
 
@@ -78,6 +80,9 @@ You can also configure a variable ```g: config_Beautifier ```, but it is better 
   brace_style = expand
 
 ```
+
+.editorconfig file which use special comments (```;vim:```)
+and special properties for jsbeautify plugin like ```path```, ```bin```
 
 ```editorconfig
   ".editorconfig
