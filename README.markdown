@@ -1,4 +1,4 @@
-vim-jsbeautify - v1.0.1 - 2012-12-01
+vim-jsbeautify - v1.1.0 - 2012-12-27
 ---------------------------------------------------
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
@@ -164,6 +164,7 @@ All commands you should run from plugin directory.
 Thanks for assistance:
 
 + [@stonelee](https://github.com/stonelee)
++ [@peterfoldi](https://github.com/peterfoldi)
 
 ## License
 
