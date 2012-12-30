@@ -414,6 +414,8 @@ func! BeautifierEditorconfigHook(config)
       let config["indent_char"] = ' '
     elseif config["indent_style"] == 'tab'
       let config["indent_char"] = '\t'
+      " When the indent_char is tab, we always want to use 1 tab
+      let config["indent_size"] = 1
     endif
   endif
 
