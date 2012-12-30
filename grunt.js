@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         },
         watch: {
             vim: {
-                files: ['plugin/*.vim', 'test/**/*.sh'],
+                files: ['plugin/*.vim', 'test/vim/**/*'],
                 tasks: 'urchin'
             },
             javascript: {
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
             }
         }
     });
-    grunt.registerTask('urchin', 'Urchin is a test framework for shell. It currently supports bash on GNU/Linux and Mac.', function(options) {
+    grunt.registerTask('urchin', 'Urchin is a test framework for shell. It currently supports bash on GNU/Linux and Mac.', function() {
         var data = grunt.config('urchin');
         var utils = grunt.utils;
         var verbose = grunt.verbose;
