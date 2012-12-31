@@ -409,6 +409,9 @@ func! BeautifierEditorconfigHook(config)
 
   let config = extend(b:config_Beautifier[type], config)
 
+  " TODO:1 Need set this checking
+  " when we update config because user
+  " may set 'tab' in global .editorconfig without editorconfig plugin
   if has_key(config, 'indent_style')
     if config["indent_style"] == 'space'
       let config["indent_char"] = ' '

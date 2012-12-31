@@ -8,6 +8,8 @@ let root = '~/.vim/bundle'
 filetype off
 syntax on
 set noexpandtab
+set tabstop=2
+set shiftwidth=2
 
 let g:editorconfig_Beautifier = expand("<sfile>:p:h").'/.editorconfig'
 

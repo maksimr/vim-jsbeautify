@@ -2,5 +2,5 @@ root = true
 
 [**.js]
 
-indent_style = tab
+indent_char = \t
 indent_size = 2
