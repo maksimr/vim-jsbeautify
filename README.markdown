@@ -19,6 +19,19 @@ To use this extension you need
 will install one of the javascript interpreter
 [nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
 
+### Installing without plugin-manager
+
+Download zip [file] (https://github.com/maksimr/vim-jsbeautify/archive/master.zip)
+or clone project. Then copy `plugin` folder from plugin's directory to your `dot vim (.vim)` folder.
+
+``` bash
+
+unzip master.zip
+cd vim-jsbeautify-master
+cp -r plugin ~/.vim/
+
+```
+
 ### Installing using pathogen
 
 ```bash
@@ -39,21 +52,21 @@ Simply add a line to your .vimrc.
 
 ```
 Also need to be installed after the expansion, go to its folder
-and perform ```git submodule update - init - recursive ``` or specify
+and perform `git submodule update - init - recursive` or specify
 when you set up the path to the external file format (shown below).
 
 Setting
 -------------
 
 In version 1.0, all configuration is done through a file. Editorconfig.
-This file can be located either in the root folder for the user ```~ /. editorconfig ```,
-or in a folder. vim ```~ / .vim / .editorconfig ```.
+This file can be located either in the root folder for the user `~ /. editorconfig `,
+or in a folder. vim `~ / .vim / .editorconfig `.
 
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
-sections can use a special comment ```; vim: ```, but this comment
+sections can use a special comment `; vim:`, but this comment
 can be used only for the global settings.
 
-You can also configure a variable ```g: config_Beautifier ```, but it is better to use. Editorconfig file.
+You can also configure a variable ```g: config_Beautifier```, but it is better to use. Editorconfig file.
 
 
 ### Examples
