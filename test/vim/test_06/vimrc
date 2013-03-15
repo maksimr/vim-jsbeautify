@@ -11,4 +11,4 @@ syntax on
 let g:editorconfig_Beautifier = expand("<sfile>:p:h").'/.editorconfig'
 
 runtime macros/matchit.vim
-exec 'set rtp+='.root.'/vim-jsbeautify'
+exec 'set rtp+=../../../'
