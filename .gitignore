@@ -2,5 +2,6 @@
 *~
 *.swp
 *.swo
+/node_modules
 /test/.urchin.log
 /test/vim/.urchin.log

@@ -11,13 +11,14 @@ module.exports = function(grunt) {
         urchin: {
             args: ['-f', 'test']
         },
-        min: {
+        uglify: {
             dist: {
-                src: ['plugin/beautify.js'],
-                dest: 'plugin/beautify.min.js'
+                files: {
+                    'plugin/beautify.min.js': ['plugin/beautify.js']
+                }
             }
         },
-        test: {
+        nodeunit: {
             files: ['test/javascript/*_test.js']
         },
         lint: {
@@ -55,30 +56,37 @@ module.exports = function(grunt) {
     });
     grunt.registerTask('urchin', 'Urchin is a test framework for shell. It currently supports bash on GNU/Linux and Mac.', function() {
         var data = grunt.config('urchin');
-        var utils = grunt.utils;
+        var util = grunt.util;
         var verbose = grunt.verbose;
         var args = data.args;
         var log = grunt.log;
         var done = this.async();
 
-        utils.spawn({
+        util.spawn({
             cmd: 'urchin',
             args: args
-        }, function(err, result, code) {
+        }, function(err, result) {
+            err = err || result.stdout.indexOf('0 tests failed') === -1;
+
             if (!err) {
-                result.split('\n').forEach(log.writeln, log);
-                return done(null);
+                log.writeln(result);
+                return done(result);
             }
 
             // error handling
             verbose.or.writeln();
             log.write('Running urchin...').error();
-            result.split('\n').forEach(log.error, log);
-            done(code);
+            log.error(result);
+            done(false);
         });
     });
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
     // Default task.
-    grunt.registerTask('default', 'test urchin');
-    grunt.registerTask('build', 'lint urchin test min');
+    grunt.registerTask('default', ['nodeunit', 'urchin']);
+    grunt.registerTask('build', ['jshint', 'urchin', 'nodeunit', 'uglify']);
 };
