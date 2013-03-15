@@ -162,11 +162,14 @@ Install Urchin like so.
 
 How run test with [grunt](https://github.com/gruntjs/grunt).
 
-  npm install -g grunt-cli
-  npm install grunt
-  npm install grunt-contrib-nodeunit
+    npm install -g grunt-cli
+    npm install grunt
+    npm install grunt-contrib-nodeunit
+    npm install grunt-contrib-jshint
+    npm install grunt-contrib-watch
+    npm install grunt-contrib-uglify
 
-  grunt test
+    grunt test
 
 Thanks for assistance:
 
