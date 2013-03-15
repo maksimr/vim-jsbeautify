@@ -87,6 +87,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task.
+    grunt.registerTask('test', ['nodeunit', 'urchin']);
     grunt.registerTask('default', ['nodeunit', 'urchin']);
     grunt.registerTask('build', ['jshint', 'urchin', 'nodeunit', 'uglify']);
 };
