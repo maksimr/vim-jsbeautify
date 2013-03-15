@@ -1,0 +1,147 @@
+#!/bin/bash
+
+fullpath() {
+  (
+    cd "$1"
+    pwd
+  )
+}
+
+indent() {
+  level="$1"
+  printf "%$((2 * ${level}))s"
+}
+
+recurse() {
+  potential_test="$1"
+  indent_level="$2"
+
+  [ "$potential_test" = 'setup_dir' ] && return
+  [ "$potential_test" = 'teardown_dir' ] && return
+  [ "$potential_test" = 'setup' ] && return
+  [ "$potential_test" = 'teardown' ] && return
+
+  echo > "$stdout_file"
+
+  if [ -d "$potential_test" ]
+    then
+    (
+      indent $indent_level
+      echo "  ${potential_test}"
+      cd "$potential_test"
+      [ -f setup_dir ] && [ -x setup_dir ] && ./setup_dir >> $stdout_file
+      for test in *
+        do
+        [ -f setup ] && [ -x setup ] && ./setup >> $stdout_file
+
+        # $2 instead of $indent_level so it doesn't clash
+        recurse "${test}" $(( $2 + 1 ))
+
+        [ -f teardown ] && [ -x teardown ] && ./teardown >> $stdout_file
+      done
+      [ -f teardown_dir ] && [ -x teardown_dir ] && ./teardown_dir >> $stdout_file
+      echo
+    )
+  elif [ -x "$potential_test" ]
+    then
+
+    [ -f setup ] && [ -x setup ] && ./setup >> $stdout_file
+
+    # Run the test
+    ./"$potential_test" &> $stdout_file
+    exit_code="$?"
+
+    [ -f teardown ] && [ -x teardown ] && ./teardown >> $stdout_file
+
+    indent $indent_level
+    if [ "$exit_code" = '0' ]
+      then
+      # On success, print a '✓'
+      echo -ne '\033[32m✓ \033[0m'
+      echo "${potential_test}"
+      echo "${potential_test} passed" >> "$logfile"
+    else
+      # On fail, print a red '✗'
+      echo -ne '\033[31m✗ \033[0m'
+      echo "${potential_test}"
+      echo "${potential_test} failed" >> "$logfile"
+      cat $stdout_file
+    fi
+    rm $stdout_file
+  fi
+}
+
+USAGE="usage: $0 <test directory>"
+
+urchin_help() {
+  echo
+  echo "$USAGE"
+  echo
+  echo '-f      Force urchin to run on directories not named "test".'
+  echo '-h      This help'
+  echo
+  echo '--xsd   Output xUnit XML schema for an integration server.'
+  echo
+  echo 'Go to http://www.urchin.sh for documentation on writing tests.'
+  echo
+  exit 0
+}
+
+urchin_go() {
+  echo Running tests
+
+  echo > "$logfile"
+  recurse "$1" 0
+
+  echo Done
+  echo $(grep -e 'passed$' "$logfile"|wc -l) tests passed.
+  echo $(grep -e 'failed$' "$logfile"|wc -l) tests failed.
+}
+
+urchin_molly_guard() {
+  echo
+  echo 'The directory on which you are running urchin is not'
+  echo 'called "test", so I am not running in case that'
+  echo 'was an accident. Use the -f flag if you really want'
+  echo 'to run urchin on that directory.'
+  echo
+  exit 1
+}
+
+FORCE=false
+HELP=false
+while [ $# -gt 0 ]
+do
+    case "$1" in
+        -f) FORCE=true;;
+        -h) HELP=true;;
+#       --xsd) action=testsuite;;
+#       --) shift; break;;
+        -*) echo >&2 $USAGE
+            exit 1;;
+        *)  break;;
+    esac
+    shift
+done
+
+# Constants
+logfile=$(fullpath "$1")/.urchin.log
+stdout_file=/tmp/urchin_stdout
+
+# Help first
+$HELP && urchin_help
+
+# Verify argument for main stuff
+if [ "$#" != '1' ] && [ ! -d "$1" ]
+  then
+  echo "$USAGE"
+  exit 1
+fi
+
+# Run or present the Molly guard.
+if echo "$(basename "$(fullpath "$1")")" | grep test || $FORCE
+  then
+  urchin_go "$1"
+else
+  urchin_molly_guard
+fi

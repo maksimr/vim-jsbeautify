@@ -63,7 +63,7 @@ module.exports = function(grunt) {
         var done = this.async();
 
         util.spawn({
-            cmd: 'urchin',
+            cmd: './urchin',
             args: args
         }, function(err, result) {
             err = err || result.stdout.indexOf('0 tests failed') === -1;

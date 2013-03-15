@@ -150,17 +150,13 @@ default they are stet to 0 and '$'.
 Tests are written in [Urchin](http://www.urchin.sh) for vim files and build in [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
 Note all commands bellow you should run from plugin directory.
 
-Install Urchin like so.
+Run vim tests with urchin.
 
-    wget -O /usr/local/bin https://raw.github.com/scraperwiki/urchin/0c6837cfbdd0963903bf0463b05160c2aecc22ef/urchin
-    chmod +x /usr/local/bin/urchin
-
-    # Runt vim tests
-    urchin test/vim
+    ./urchin test/vim
 
 (Or put it some other place in your PATH.)
 
-How run test with [grunt](https://github.com/gruntjs/grunt).
+How run vim and javascript tests with [grunt](https://github.com/gruntjs/grunt).
 
     npm install -g grunt-cli
     npm install grunt
@@ -170,6 +166,11 @@ How run test with [grunt](https://github.com/gruntjs/grunt).
     npm install grunt-contrib-uglify
 
     grunt test
+
+Run only javascript tests.
+
+    grunt nodeunit
+
 
 Thanks for assistance:
 
