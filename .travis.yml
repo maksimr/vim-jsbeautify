@@ -4,7 +4,14 @@ node_js:
 notifications:
   email: false
 before_install:
-  - sudo apt-get install -qq vim
+  - sudo apt-get install -qq vim subversion
+  - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8
+  - cd v8
+  - make dependencies
+  - make native
+  - sudo cp out/native/d8 /usr/local/bin
+  - cd ..
+  - rm -rf v8
 before_script:
   - npm install -g grunt-cli
   - npm install grunt
