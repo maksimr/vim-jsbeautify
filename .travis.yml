@@ -9,7 +9,7 @@ before_install:
   - cd v8
   - make dependencies
   - make native
-  - sudo cp out/native/d8 /usr/local/bin
+  - sudo cp out/native/d8 /usr/local/bin/v8
   - cd ..
   - rm -rf v8
 before_script:
