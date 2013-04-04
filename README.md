@@ -58,8 +58,8 @@ when you set up the path to the external file format (shown below).
 Setting
 -------------
 
-In version 1.0, all configuration is done through a file. Editorconfig.
-This file can be located either in the root folder for the user `~ /. editorconfig `,
+In version 1.0, all configuration is done through a file `.editorconfig`.
+This file can be located either in the root folder for the user `~ / .editorconfig `,
 or in a folder. vim `~ / .vim / .editorconfig `.
 
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
@@ -73,8 +73,8 @@ You can also configure a variable ```g: config_Beautifier```, but it is better t
 
 A simple example of .editorconfig file:
 
-```editorconfig
-  ".editorconfig
+```ini
+  ; .editorconfig
 
   root = true
 
@@ -97,8 +97,8 @@ A simple example of .editorconfig file:
 .editorconfig file which use special comments (```;vim:```)
 and special properties for jsbeautify plugin like ```path```, ```bin```
 
-```editorconfig
-  ".editorconfig
+```ini
+  ; .editorconfig
 
   root = true
 
