@@ -40,17 +40,25 @@
     has.add('host-node', global.process && /node(\.exe||js)?$/.test(global.process.execPath));
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
 
+    if (has('host-v8')) {
+        global.window = global;
+        // get rootPtah
+        // Need for html-beautify
+        // because it require loading js-beautify and css-beautify
+        global.rootPtah = path.replace(/[\w-.]+.js$/,'');
+    }
+
     if (has('host-node')) {
         (function() {
-            var fs = require('fs'),
-                vm = require('vm');
+            var fs = require('fs');
 
             load = function(path) {
                 var context = {},
-                    data = read(path),
                     property;
 
-                vm.runInNewContext(data, context, path);
+                path = global.process.cwd() + '/' + path; // make relative path
+                context = require(path);
+
                 for (property in context) {
                     if (hop.call(context, property)) {
                         global[property] = context[property];
@@ -76,7 +84,13 @@
 
         load(path);
 
-        global.beautify = global.js_beautify || global.style_html || global.css_beautify;
+        global.beautify = global.js_beautify || global.html_beautify || global.css_beautify;
+
+        // XXX
+        if (has('host-v8') && global.html_beautify) {
+            load(global.rootPtah+'beautify.js');
+            load(global.rootPtah+'beautify-css.js');
+        }
 
         print(global.beautify(content, options));
 

@@ -12,6 +12,10 @@ module.exports = function(grunt) {
             args: ['-f', 'test']
         },
         uglify: {
+            options: {
+                compress: false,
+                mangle: false
+            },
             dist: {
                 files: {
                     'plugin/beautify.min.js': ['plugin/beautify.js']
@@ -30,7 +34,7 @@ module.exports = function(grunt) {
                 tasks: 'urchin'
             },
             javascript: {
-                files: ['plugin/*.js', '<config:test.files>'],
+                files: ['plugin/*.js', 'test/javascript/**/*.js'],
                 tasks: 'test'
             }
         },

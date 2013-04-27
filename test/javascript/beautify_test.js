@@ -6,7 +6,7 @@
  *  + node 0.8.1
  */
 
-(function(global) {
+(function() {
     var system = require('child_process').exec,
         conf = require('./conf.json'),
         helpers = require('./helpers'),
@@ -63,7 +63,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n    <span></span>\n</div>\n', 'should be formatted string.');
+                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n', 'should be formatted string.');
                     test.done();
                 });
             },
@@ -81,7 +81,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n\t\t<span></span>\n</div>\n', 'should be formatted string with tab.');
+                    test.equal(stdout, '<div>foo\n\t\t<div></div>\n</div>\n', 'should be formatted string with tab.');
                     test.done();
                 });
             },
@@ -130,4 +130,4 @@
             done();
         }
     }, testCase);
-}(this));
+}());

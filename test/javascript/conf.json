@@ -1,9 +1,9 @@
 {
   "plugin": "plugin/beautify.js",
   "beautify": {
-    "js_path": "plugin/lib/beautify.js",
-    "css_path": "plugin/lib/beautify-css.js",
-    "html_path": "plugin/lib/beautify-html.js"
+    "js_path": "plugin/lib/js/lib/beautify.js",
+    "css_path": "plugin/lib/js/lib/beautify-css.js",
+    "html_path": "plugin/lib/js/lib/beautify-html.js"
   },
   "options": {
     "indent_size": 4,
