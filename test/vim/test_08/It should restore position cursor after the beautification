@@ -3,20 +3,12 @@
 # test_08
 # It should restore position cursor after the beautification
 
-TMP_FILE='_tmp'
+TMP_FILE="$(tempfile)"
 
 echo $(cat file) > $TMP_FILE
 
 vim -u vimrc -c "call setpos('.', [0,1,23,0]) | execute 'silent call JsBeautify()' | call setline('1', getpos('.')) | w | q | q" $TMP_FILE
 
 RESULT=$(cat $TMP_FILE)
-
-#clean
-if [ -f $TMP_FILE ]
-then
-  rm $TMP_FILE
-fi
-
-clear
 
 [ "$RESULT" = "$(cat expected)" ]

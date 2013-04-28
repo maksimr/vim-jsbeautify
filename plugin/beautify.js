@@ -56,7 +56,11 @@
                 var context = {},
                     property;
 
-                path = global.process.cwd() + '/' + path; // make relative path
+                // if path not absolute
+                if (path.charAt(0) !== '/') {
+                    path = global.process.cwd() + '/' + path; // make relative path
+                }
+
                 context = require(path);
 
                 for (property in context) {
