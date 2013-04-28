@@ -14,10 +14,6 @@ before_install:
   - rm -rf v8
 before_script:
   - npm install -g grunt-cli
-  - npm install grunt
-  - npm install grunt-contrib-jshint
-  - npm install grunt-contrib-nodeunit
-  - npm install grunt-contrib-watch
-  - npm install grunt-contrib-uglify
+  - npm install
   - sleep 5
 script: grunt test

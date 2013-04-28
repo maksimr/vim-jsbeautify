@@ -7,8 +7,7 @@
   </head>
   
   <body>
-    <div>Content</div>
-    <a href="test">Link</a>
+    <div>Content</div> <a href="test">Link</a> 
     <span>Some string</span>
   </body>
 

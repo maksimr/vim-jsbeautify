@@ -12,6 +12,10 @@ module.exports = function(grunt) {
             args: ['-f', 'test']
         },
         uglify: {
+            options: {
+                compress: false,
+                mangle: false
+            },
             dist: {
                 files: {
                     'plugin/beautify.min.js': ['plugin/beautify.js']
@@ -30,7 +34,7 @@ module.exports = function(grunt) {
                 tasks: 'urchin'
             },
             javascript: {
-                files: ['plugin/*.js', '<config:test.files>'],
+                files: ['plugin/*.js', 'test/javascript/**/*.js'],
                 tasks: 'test'
             }
         },
@@ -57,7 +61,6 @@ module.exports = function(grunt) {
     grunt.registerTask('urchin', 'Urchin is a test framework for shell. It currently supports bash on GNU/Linux and Mac.', function() {
         var data = grunt.config('urchin');
         var util = grunt.util;
-        var verbose = grunt.verbose;
         var args = data.args;
         var log = grunt.log;
         var done = this.async();
@@ -66,17 +69,15 @@ module.exports = function(grunt) {
             cmd: './urchin',
             args: args
         }, function(err, result) {
-            err = err || result.stdout.indexOf('0 tests failed') === -1;
+            err = err || result.stdout.match(/\n[^0]\d* tests failed/g);
 
             if (!err) {
                 log.writeln(result);
-                return done(result);
+                return done(null);
             }
 
             // error handling
-            verbose.or.writeln();
-            log.write('Running urchin...').error();
-            log.error(result);
+            log.writeln(result);
             done(false);
         });
     });

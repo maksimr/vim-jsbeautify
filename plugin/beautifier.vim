@@ -163,7 +163,7 @@ endfunction
 func s:getPathByType(type)
   let path = ''
   let type = a:type
-  let rootPtah = s:plugin_Root_direcoty."/lib/"
+  let rootPtah = s:plugin_Root_direcoty."/lib/js/lib/"
 
   if type == 'js'
     let path = rootPtah."beautify.js"
