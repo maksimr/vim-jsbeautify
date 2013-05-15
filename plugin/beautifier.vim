@@ -140,6 +140,27 @@ func! s:processingEditconfigFile(content)
   return opts
 endfun
 
+" Convert some property from editorconfig
+" to js-beautifier. For example `tab`.
+"
+" param {Dict} value The configuration object.
+" return {Dict} Return the same configuration object.
+function s:treatConfig(config)
+  let config = a:config
+
+  if has_key(config, 'indent_style')
+    if config["indent_style"] == 'space'
+      let config["indent_char"] = ' '
+    elseif config["indent_style"] == 'tab'
+      let config["indent_char"] = '\t'
+      " When the indent_char is tab, we always want to use 1 tab
+      let config["indent_size"] = 1
+    endif
+  endif
+
+  return config
+endfunction
+
 " Метод которые обновляет
 " скриптовой 'приватный' объект
 " конфигурации
@@ -152,8 +173,16 @@ function s:updateConfig(value)
     return a:value
   endif
 
+  let config = deepcopy(a:value)
+
+  for type in ['js', 'css', 'html']
+    if has_key(config, type)
+      call s:treatConfig(config[type])
+    endif
+  endfor
+
   " Делаем копию объекта
-  let b:config_Beautifier = deepcopy(a:value)
+  let b:config_Beautifier = config
 
   return b:config_Beautifier
 endfunction
@@ -409,18 +438,7 @@ func! BeautifierEditorconfigHook(config)
 
   let config = extend(b:config_Beautifier[type], config)
 
-  " TODO:1 Need set this checking
-  " when we update config because user
-  " may set 'tab' in global .editorconfig without editorconfig plugin
-  if has_key(config, 'indent_style')
-    if config["indent_style"] == 'space'
-      let config["indent_char"] = ' '
-    elseif config["indent_style"] == 'tab'
-      let config["indent_char"] = '\t'
-      " When the indent_char is tab, we always want to use 1 tab
-      let config["indent_size"] = 1
-    endif
-  endif
+  call s:treatConfig(config)
 
   let b:config_Beautifier[type] = config
 
