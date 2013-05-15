@@ -23,7 +23,8 @@ module.exports = function(grunt) {
             }
         },
         nodeunit: {
-            files: ['test/javascript/*_test.js']
+            all: ['test/javascript/*_test.js'],
+            node: ['test/javascript/beautify_test.js']
         },
         lint: {
             files: ['grunt.js', 'plugin/*js', '<config:test.files>']
@@ -88,7 +89,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task.
-    grunt.registerTask('test', ['nodeunit', 'urchin']);
-    grunt.registerTask('default', ['nodeunit', 'urchin']);
+    grunt.registerTask('test', ['nodeunit:all', 'urchin']);
+    grunt.registerTask('default', ['nodeunit:all', 'urchin']);
     grunt.registerTask('build', ['jshint', 'urchin', 'nodeunit', 'uglify']);
 };
