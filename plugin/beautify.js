@@ -57,7 +57,10 @@
                     property;
 
                 // if path not absolute
-                if (path.charAt(0) !== '/') {
+                // check for path beginning with / for unix systems
+                // or with a second character of : for Windows C:\
+                // style paths
+                if (path.charAt(0) !== '/' && path.charAt(1) !== ':') {
                     path = global.process.cwd() + '/' + path; // make relative path
                 }
 
