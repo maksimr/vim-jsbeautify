@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# issue 25
+# Throw error if any section (js, html, css) is empty in global .editorconfig
+
+TMP_FILE="$(tempfile)"
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'silent call HtmlBeautify()' | w | q | q" $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+[ "$RESULT" = "$(cat expected)" ]

@@ -85,12 +85,15 @@ func! s:processingEditconfigFile(content)
     " collect all data after [**.js] to
     " empty string
     let index = index(content, '[**.'.type.']')
+    let l:value = {}
 
     if index == -1
+      " If section doesn't define then set it how
+      " empty object
+      " @fix issue-25
+      let opts[type] = l:value
       continue
     endif
-
-    let l:value = {}
 
     " line with declaration [**.type]
     " we shoul skip.
