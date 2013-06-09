@@ -176,6 +176,7 @@ Thanks for assistance:
 
 + [@stonelee](https://github.com/stonelee)
 + [@peterfoldi](https://github.com/peterfoldi)
++ [@edmistond](https://github.com/edmistond)
 
 
 ## Versions
