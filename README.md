@@ -54,11 +54,19 @@ Simply add a line to your .vimrc.
 
 You'd better add another line in your .vimrc to use js-beautify.
 
+```vim
+
     Bundle 'einars/js-beautify'
+    
+```
 
 call BundleInstall()
 
+```vim
+
     :BundleInstall
+
+```
 
 Also need to be installed after the expansion, go to its folder
 and perform `git submodule update - init - recursive` or specify
