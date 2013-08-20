@@ -51,6 +51,15 @@ Simply add a line to your .vimrc.
   Bundle 'maksimr/vim-jsbeautify'
 
 ```
+
+You'd better add another line in your .vimrc to use js-beautify.
+
+    Bundle 'einars/js-beautify'
+
+call BundleInstall()
+
+    :BundleInstall
+
 Also need to be installed after the expansion, go to its folder
 and perform `git submodule update - init - recursive` or specify
 when you set up the path to the external file format (shown below).
@@ -97,6 +106,7 @@ A simple example of .editorconfig file:
 .editorconfig file which use special comments (```;vim:```)
 and special properties for jsbeautify plugin like ```path```, ```bin```
 
+
 ```ini
   ; .editorconfig
 
@@ -105,14 +115,14 @@ and special properties for jsbeautify plugin like ```path```, ```bin```
   [**.js]
   ; Path to the external file format
   ; The default is taken from the lib folder inside the folder extension.
-  path=~/.vim/bundle/js-beautify/beautify.js
+  path=~/.vim/bundle/js-beautify/js/lib/beautify.js
   ; Javascript interpreter to be invoked by default 'node'
   bin=node
   indent_style = space
   indent_size = 4
 
   [**.css]
-  path=~/.vim/bundle/js-beautify/beautify-css.js
+  path=~/.vim/bundle/js-beautify/js/lib/beautify-css.js
   indent_style = space
   indent_size = 4
 
@@ -120,7 +130,7 @@ and special properties for jsbeautify plugin like ```path```, ```bin```
   ; Using special comments
   ; And such comments or apply only in global configuration
   ; So it's best to avoid them
-  ;vim:path=~/.vim/bundle/js-beautify/beautify-html.js
+  ;vim:path=~/.vim/bundle/js-beautify/js/lib/beautify-html.js
   ;vim:max_char=78:brace_style=expand
   indent_style = space
   indent_size = 4
