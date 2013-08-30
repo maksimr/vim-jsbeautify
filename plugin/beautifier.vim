@@ -73,6 +73,21 @@ func! s:quote(str)
   return '"'.escape(a:str,'"').'"'
 endfun
 
+" convert string to JSON
+" @param {String} str Any string
+" @return {String} The JSON string
+func! s:toJSON(str)
+  let json = substitute(a:str, "'[", '[', 'g')
+  let json = substitute(json, "]'", ']', 'g')
+
+  let json = substitute(json, "'false'", 'false', 'g')
+  let json = substitute(json, "'true'", 'true', 'g')
+
+  let json = substitute(json, "'", '"', 'g')
+  let json = s:quote(json)
+  return json
+endfun
+
 " @param {String} The content of .editorconfig file
 " @return {Dict} The configuration object based
 " on content the file.
@@ -368,20 +383,13 @@ func! Beautifier(...)
   let lines_length = len(getline(line1, line2))
 
   " Write content to temporary file
-  call writefile(content, g:tmp_file_Beautifier) 
+  call writefile(content, g:tmp_file_Beautifier)
   " String arguments which will be passed
   " to external command
 
-  " TODO make valid json
-  let opts_Beautifier_arg = substitute(string(opts), "'[", '[', 'g')
-  let opts_Beautifier_arg = substitute(opts_Beautifier_arg, "]'", ']', 'g')
-
-  let opts_Beautifier_arg = substitute(opts_Beautifier_arg, "'", '"', 'g')
-  let opts_Beautifier_arg = s:quote(opts_Beautifier_arg)
+  let opts_Beautifier_arg = s:toJSON(string(opts))
   let path_Beautifier_arg = s:quote(path)
   let tmp_file_Beautifier_arg = s:quote(g:tmp_file_Beautifier)
-
-
 
   if executable(engine)
     let result = system(engine." ".fnameescape(s:plugin_Root_direcoty."/beautify.min.js")." --js_arguments ".tmp_file_Beautifier_arg." ".opts_Beautifier_arg." ".path_Beautifier_arg)
