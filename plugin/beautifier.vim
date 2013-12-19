@@ -401,7 +401,8 @@ func! Beautifier(...)
 
   let lines_Beautify = split(result, "\n")
 
-  call setline(line1, lines_Beautify)
+  silent exec line1.",".line2."d"
+  call append(line1 - 1, lines_Beautify)
 
   " delete excess lines
   if lines_length > len(lines_Beautify)
@@ -459,12 +460,24 @@ endfun
 
 " @param {[Number|String]} a:0 Default value '1'
 " @param {[Number|String]} a:1 Default value '$'
+fun! RangeJsBeautify() range
+  return call('Beautifier', extend(['js'], [a:firstline, a:lastline]))
+endfun
+
 fun! JsBeautify(...)
   return call('Beautifier', extend(['js'], a:000))
 endfun
 
+fun! RangeHtmlBeautify() range
+  return call('Beautifier', extend(['html'], [a:firstline, a:lastline]))
+endfun
+
 fun! HtmlBeautify(...)
   return call('Beautifier', extend(['html'], a:000))
+endfun
+
+fun! RangeCSSBeautify() range
+  return call('Beautifier', extend(['css'], [a:firstline, a:lastline]))
 endfun
 
 fun! CSSBeautify(...)
