@@ -401,8 +401,9 @@ func! Beautifier(...)
 
   let lines_Beautify = split(result, "\n")
 
-  silent exec line1.",".line2."d"
-  call append(line1 - 1, lines_Beautify)
+  silent exec line1.",".line2."j"
+  call setline(line1, lines_Beautify[0])
+  call append(line1, lines_Beautify[1:])
 
   " delete excess lines
   if lines_length > len(lines_Beautify)
