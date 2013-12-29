@@ -5,10 +5,10 @@ notifications:
   email: false
 before_install:
   - sudo apt-get install -qq vim subversion
-  - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8
+  - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8 >/dev/null
   - cd v8
-  - make dependencies
-  - make native
+  - make dependencies >/dev/null
+  - make native >/dev/null
   - sudo cp out/native/d8 /usr/local/bin/v8
   - cd ..
   - rm -rf v8
