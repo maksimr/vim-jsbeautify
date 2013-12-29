@@ -99,7 +99,7 @@
             load(global.rootPtah+'beautify-css.js');
         }
 
-        print(global.beautify(content, options));
+        print(global.beautify(content, options).replace(/\n+$/g, ''));
 
     }(contentPath, options, path));
 }).apply(this, (typeof process === 'object' && process.argv.splice(3)) || arguments);

@@ -64,7 +64,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n\n', 'should be formatted string.');
+                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n', 'should be formatted string.');
                     test.done();
                 });
             },
@@ -82,7 +82,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n\t\t<div></div>\n</div>\n\n', 'should be formatted string with tab.');
+                    test.equal(stdout, '<div>foo\n\t\t<div></div>\n</div>\n', 'should be formatted string with tab.');
                     test.done();
                 });
             },
