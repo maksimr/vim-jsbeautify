@@ -405,12 +405,6 @@ func! Beautifier(...)
   call setline(line1, lines_Beautify[0])
   call append(line1, lines_Beautify[1:])
 
-  " delete excess lines
-  if lines_length > len(lines_Beautify)
-    let endline = len(lines_Beautify) + 1
-    silent exec endline.",$g/.*/d"
-  endif
-
   for [key,value] in items(cursorPositions)
     call s:setNumberOfNonSpaceCharactersBeforeCursor(key,value.characters)
   endfor
