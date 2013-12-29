@@ -5,8 +5,7 @@
     "name": "Maksim Ryzhikov",
     "email": "rv.maksim@gmail.com"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
