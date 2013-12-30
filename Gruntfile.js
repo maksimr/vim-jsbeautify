@@ -91,5 +91,5 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('test', ['nodeunit:all', 'urchin']);
     grunt.registerTask('default', ['nodeunit:all', 'urchin']);
-    grunt.registerTask('build', ['jshint', 'urchin', 'nodeunit', 'uglify']);
+    grunt.registerTask('build', ['jshint', 'nodeunit:all', 'urchin', 'uglify']);
 };

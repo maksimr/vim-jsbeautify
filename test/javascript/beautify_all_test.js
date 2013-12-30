@@ -30,7 +30,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n    return i;\n});\n', 'should be formatted string.');
+                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n    return i;\n});', 'should be formatted string.');
                     test.done();
                 });
             },
@@ -48,7 +48,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n\t\treturn i;\n});\n', 'should be formatted string with tab.');
+                    test.equal(stdout, '(["foo", "bar"]).each(function(i) {\n\t\treturn i;\n});', 'should be formatted string with tab.');
                     test.done();
                 });
             },
@@ -64,7 +64,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n', 'should be formatted string.');
+                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>', 'should be formatted string.');
                     test.done();
                 });
             },
@@ -82,7 +82,23 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n\t\t<div></div>\n</div>\n', 'should be formatted string with tab.');
+                    test.equal(stdout, '<div>foo\n\t\t<div></div>\n</div>', 'should be formatted string with tab.');
+                    test.done();
+                });
+            },
+            'HtmlBeautify() adding extra newline (issue 36)': function(test) {
+                var contentPath = 'test/javascript/templates/issue_36.html',
+                    command = this.command;
+
+                test.expect(1);
+                command = print(command, conf.plugin, contentPath, {}, conf.beautify.html_path);
+
+                /**
+                 * Should simple format file.
+                 */
+                system(command, function(err, stdout, stderr) {
+                    stdout = err || stderr || stdout;
+                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n\n', 'should save additional newline.');
                     test.done();
                 });
             },
@@ -98,7 +114,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '.foo {\n    padding: 0;\n}\n', 'should be formatted string.');
+                    test.equal(stdout, '.foo {\n    padding: 0;\n}', 'should be formatted string.');
                     test.done();
                 });
             },
@@ -116,7 +132,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '.foo {\n\t\tpadding: 0;\n}\n', 'should be formatted string with tab.');
+                    test.equal(stdout, '.foo {\n\t\tpadding: 0;\n}', 'should be formatted string with tab.');
                     test.done();
                 });
             }

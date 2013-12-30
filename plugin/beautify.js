@@ -11,7 +11,7 @@
         load = global.load,
         read = global.read,
         hop = Object.prototype.hasOwnProperty,
-        print = global.print,
+        print = null,
         hasCache = null,
 
         objectPrototypeToString = Object.prototype.toString,
@@ -41,6 +41,7 @@
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
 
     if (has('host-v8')) {
+        print = global.write;
         global.window = global;
         // get rootPtah
         // Need for html-beautify
@@ -73,7 +74,7 @@
                 }
             };
 
-            print = global.console.log;
+            print = process.stdout.write.bind(process.stdout);
             read = function(path) {
                 return fs.readFileSync(path, 'utf-8');
             };
@@ -99,7 +100,13 @@
             load(global.rootPtah+'beautify-css.js');
         }
 
-        print(global.beautify(content, options).replace(/\n+$/g, ''));
+        //FIXME(maksimrv): Hm.... Why?! only for html :|
+        if (global.html_beautify) {
+            print(global.beautify(content, options).replace(/\n$/g, ''));
+            return;
+        }
+
+        print(global.beautify(content, options));
 
     }(contentPath, options, path));
 }).apply(this, (typeof process === 'object' && process.argv.splice(3)) || arguments);
