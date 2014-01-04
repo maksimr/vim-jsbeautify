@@ -1,1 +1,1 @@
-<div> <p>Some Content</p> </div>
+(function(){return "1";}());
