@@ -1,16 +1,19 @@
 {
-  "name": "vim-jsbeautify",
-  "version": "1.1.1",
-  "author": {
-    "name": "Maksim Ryzhikov",
-    "email": "rv.maksim@gmail.com"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt": "~0.4.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-nodeunit": "~0.2.2"
-  }
+    "name": "vim-jsbeautify",
+    "version": "1.1.1",
+    "author": {
+        "name": "Maksim Ryzhikov",
+        "email": "rv.maksim@gmail.com"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "grunt-contrib-jshint": "~0.8.0",
+        "grunt-contrib-watch": "~0.5.3",
+        "grunt": "~0.4.0",
+        "grunt-contrib-uglify": "~0.2.7",
+        "grunt-contrib-nodeunit": "~0.2.2"
+    },
+    "scripts": {
+        "test": "grunt test"
+    }
 }
