@@ -11,7 +11,7 @@ before_install:
   - sudo make native >/dev/null
   - sudo cp out/native/d8 /usr/local/bin/v8
   - cd ..
-  - rm -rf v8
+  - sudo rm -rf v8
 before_script:
   - npm install -g grunt-cli
   - npm install
