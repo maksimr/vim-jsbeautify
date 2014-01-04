@@ -69,7 +69,7 @@ call BundleInstall()
 ```
 
 Also need to be installed after the expansion, go to its folder
-and perform `git submodule update - init - recursive` or specify
+and perform `git submodule update --init --recursive` or specify
 when you set up the path to the external file format (shown below).
 
 Setting
