@@ -1,0 +1,12 @@
+" vim -u vimrc
+set nocompatible
+
+set nowrap
+
+let root = '~/.vim/bundle'
+
+filetype off
+syntax on
+
+runtime macros/matchit.vim
+exec 'set rtp+=../../../'

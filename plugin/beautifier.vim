@@ -401,6 +401,11 @@ func! Beautifier(...)
 
   let lines_Beautify = split(result, "\n")
 
+  " issue 42
+  if !len(lines_Beautify)
+      return result
+  endif
+
   silent exec line1.",".line2."j"
   call setline(line1, lines_Beautify[0])
   call append(line1, lines_Beautify[1:])
