@@ -79,11 +79,13 @@ In version 1.0, all configuration is done through a file `.editorconfig`.
 This file can be located either in the root folder for the user `~ / .editorconfig `,
 or in a folder. vim `~ / .vim / .editorconfig `.
 
+To define custom path to .editorconfig file you should define variable `g:editorconfig_Beautifier`
+
 Settings are taken from sections [\*\*. js], [\*\*. css] and [\*\*. html]. within these
 sections can use a special comment `; vim:`, but this comment
 can be used only for the global settings.
 
-You can also configure a variable ```g: config_Beautifier```, but it is better to use. Editorconfig file.
+You can also configure a variable ```g: config_Beautifier```(g:config_Beautifier has type **dict**), but it is better to use. Editorconfig file.
 
 
 ### Examples
