@@ -169,7 +169,7 @@ Usage
     call JsBeautify(a:vStart, a:vEnd)
   endfunction
     
-  autocmd FileType javascript,json vnoremap <buffer> <silent> <leader>js :<c-u>call VisualModeBeautify(line("'<"),line("'>"))<cr>
+  autocmd FileType javascript vnoremap <buffer> <silent> <c-f> :<c-u>call VisualModeBeautify(line("'<"),line("'>"))<cr>
 ```
 
 JsBeautify function takes two parameters, this number of start and end lines by
