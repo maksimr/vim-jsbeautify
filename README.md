@@ -160,7 +160,16 @@ Usage
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
   " for css or scss
   autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
+  
+  "optional function & autocommand to beautify selected lines
+  function! VisualModeBeautify(vStart, vEnd)
+    "echo action
+    echom "running JsBeautify(" . a:vStart . ", " . a:vEnd . ")"
+    "call beautify
+    call JsBeautify(a:vStart, a:vEnd)
+  endfunction
+    
+  autocmd FileType javascript vnoremap <buffer> <silent> <c-f> :<c-u>call VisualModeBeautify(line("'<"),line("'>"))<cr>
 ```
 
 JsBeautify function takes two parameters, this number of start and end lines by
