@@ -254,7 +254,6 @@ endfunction
 
 "Converts number of non blank characters to cursor position (line and column)
 function! s:getCursorPosition(numberOfNonBlankCharactersFromTheStartOfFile)
-  "echo a:numberOfNonBlankCharactersFromTheStartOfFile
   let lineNumber = 1
   let nonBlankCount = 0
   while lineNumber <= line('$')
@@ -267,13 +266,15 @@ function! s:getCursorPosition(numberOfNonBlankCharactersFromTheStartOfFile)
       endif
       let charIndex = charIndex + 1
       if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile 
-        "echo 'found position!'
+        "Found position!
         return {'line': lineNumber,'column': charIndex}
       end
     endwhile
     let lineNumber = lineNumber + 1
   endwhile
-  "echo "Oops, nothing found!"
+
+  "Oops, nothing found!
+  return {}
 endfunction
 
 
@@ -281,7 +282,10 @@ endfunction
 "Restoring current position by number of non blank characters
 function! s:setNumberOfNonSpaceCharactersBeforeCursor(mark,numberOfNonBlankCharactersFromTheStartOfFile)
   let location = s:getCursorPosition(a:numberOfNonBlankCharactersFromTheStartOfFile)
-  call setpos(a:mark, [0, location.line, location.column, 0])
+
+  if !empty(location)
+      call setpos(a:mark, [0, location.line, location.column, 0])
+  endif
 endfunction
 
 
