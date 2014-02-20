@@ -164,7 +164,20 @@ Usage
 ```
 
 JsBeautify function takes two parameters, this number of start and end lines by
-default they are stet to 0 and '$'.
+default they are stet to 0 and `$`.
+
+If you want beautify only selected lines you should use functions
+**RangeJsBeautify**, **RangeCSSBeautify**, **RangeHtmlBeautify**.
+
+Example of binding function for js, html and css in visual mode on <ctrl-f>
+
+```vim
+  ".vimrc
+  autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+  autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+  autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+```
+
 
 ## Running tests
 Tests are written in [Urchin](http://www.urchin.sh) for vim files and build in [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
