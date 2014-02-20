@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+vim -u vimrc -c "execute 'try | call setpos(\".\", [0, 0, 0]) | silent call JsBeautify() | catch | cq! | endtry' | q!" file
