@@ -28,8 +28,8 @@ endif
 
 
 "% Helper functions and variables
-let s:plugin_Root_direcoty = fnamemodify(expand("<sfile>"), ":h")
-let s:paths_Editorconfig = map(['~/.editorconfig', '~/.vim/.editorconfig', s:plugin_Root_direcoty.'/.editorconfig'], 'expand(v:val)')
+let s:plugin_Root_directory = fnamemodify(expand("<sfile>"), ":h")
+let s:paths_Editorconfig = map(['~/.editorconfig', '~/.vim/.editorconfig', s:plugin_Root_directory.'/.editorconfig'], 'expand(v:val)')
 
 " Function for debugging
 " @param {Any} content Any type which will be converted
@@ -210,7 +210,7 @@ endfunction
 func s:getPathByType(type)
   let path = ''
   let type = a:type
-  let rootPtah = s:plugin_Root_direcoty."/lib/js/lib/"
+  let rootPtah = s:plugin_Root_directory."/lib/js/lib/"
 
   if type == 'js'
     let path = rootPtah."beautify.js"
@@ -396,7 +396,7 @@ func! Beautifier(...)
   let tmp_file_Beautifier_arg = s:quote(g:tmp_file_Beautifier)
 
   if executable(engine)
-    let result = system(engine." ".fnameescape(s:plugin_Root_direcoty."/beautify.min.js")." --js_arguments ".tmp_file_Beautifier_arg." ".opts_Beautifier_arg." ".path_Beautifier_arg)
+    let result = system(engine." ".fnameescape(s:plugin_Root_directory."/beautify.min.js")." --js_arguments ".tmp_file_Beautifier_arg." ".opts_Beautifier_arg." ".path_Beautifier_arg)
   else
     " Executable bin doesn't exist
     call ErrorMsg('The '.engine.' is not executable!')
