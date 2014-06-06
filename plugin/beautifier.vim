@@ -28,7 +28,7 @@ endif
 " Which file types supported vim plugin
 " Default settings for this file types you can see
 " in file plugin/.editorconfig
-let s:supportedFileTypes = ['js', 'css', 'html', 'jsx']
+let s:supportedFileTypes = ['js', 'css', 'html', 'jsx', 'json']
 
 "% Helper functions and variables
 let s:plugin_Root_directory = fnamemodify(expand("<sfile>"), ":h")
@@ -211,15 +211,11 @@ endfunction
 " Get default path
 " @param {String} type Some of the types js, html or css
 func s:getPathByType(type)
-  let path = ''
   let type = a:type
   let rootPtah = s:plugin_Root_directory."/lib/js/lib/"
+  let path = rootPtah."beautify.js"
 
-  if type == 'js'
-    let path = rootPtah."beautify.js"
-  elseif type == 'jsx'
-    let path = rootPtah."beautify.js"
-  elseif type == 'html'
+  if type == 'html'
     let path = rootPtah."beautify-html.js"
   elseif type == 'css'
     let path = rootPtah."beautify-css.js"
@@ -478,6 +474,14 @@ endfun
 
 fun! RangeJsxBeautify() range
   return call('Beautifier', extend(['jsx'], [a:firstline, a:lastline]))
+endfun
+
+fun! JsonBeautify(...)
+  return call('Beautifier', extend(['json'], a:000))
+endfun
+
+fun! RangeJsonBeautify() range
+  return call('Beautifier', extend(['json'], [a:firstline, a:lastline]))
 endfun
 
 fun! RangeHtmlBeautify() range

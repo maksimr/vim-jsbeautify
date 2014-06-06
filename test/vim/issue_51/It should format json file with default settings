@@ -4,7 +4,7 @@ TMP_FILE="$(tempfile)"
 
 echo $(cat file) > $TMP_FILE
 
-vim -u vimrc -c "execute 'silent call JsxBeautify()' | w | q | q" $TMP_FILE
+vim -u vimrc -c "execute 'silent call JsonBeautify()' | w | q | q" $TMP_FILE
 
 RESULT=$(cat $TMP_FILE)
 

@@ -4,6 +4,10 @@ root = true
 indent_style = space
 indent_size = 4
 
+[**.json]
+indent_style = space
+indent_size = 4
+
 [**.jsx]
 e4x = true
 indent_style = space
