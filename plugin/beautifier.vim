@@ -378,8 +378,12 @@ func! Beautifier(...)
   let path = fnameescape(path)
   " Get external engine which will
   " be execute javascript file
-  " by default get node
-  let engine = get(opts, 'bin', 'node')
+  " by default get nodejs
+  let engine = get(opts, 'bin', 'nodejs')
+  " nodejs may be called node
+  if !executable(engine)
+      let engine = get(opts, 'bin', 'node')
+  endif
 
   " Get content from the files
   let content = getline(line1, line2)
