@@ -10,7 +10,7 @@ before_install:
   - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8 >/dev/null
   - cd v8
   - make dependencies >/dev/null
-  - sudo make native >/dev/null
+  - sudo make native
   - sudo cp out/native/d8 /usr/local/bin/v8
   - cd ..
   - sudo rm -rf v8
