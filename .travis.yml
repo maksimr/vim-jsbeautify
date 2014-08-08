@@ -5,6 +5,8 @@ notifications:
   email: false
 before_install:
   - sudo apt-get install -qq vim subversion
+  - git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+  - export PATH=$(pwd)/depot_tools:"$PATH"
   - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8 >/dev/null
   - cd v8
   - make dependencies >/dev/null
