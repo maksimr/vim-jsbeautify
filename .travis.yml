@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - 0.8
+  - "0.10"
+  - "0.8"
 notifications:
   email: false
 before_install:
@@ -13,6 +14,7 @@ before_install:
   - cd ..
   - sudo rm -rf v8
 before_script:
+  - '[ "${TRAVIS_NODE_VERSION}" != "0.8"  ] || npm install -g npm@1.4.28'
   - npm install -g npm
   - npm install -g grunt-cli
   - npm install
