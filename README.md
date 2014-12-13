@@ -152,6 +152,27 @@ and special properties for jsbeautify plugin like ```path```, ```bin```
 Usage
 -------------
 
+**New Commands**:
+- `Beautify([filetype], [startLine], [endLine])`
+- `BeautifyRange([filetype])`
+
+General use function which smartly infers desired settings:
+
+```vim
+" apply normal and visual bindings in all relevant filetypes
+autocmd FileType css,html,javascript,jsx,json nnoremap <silent> <buffer> <leader>js :<c-u>call Beautify()<cr>
+autocmd FileType css,html,javascript,jsx,json vnoremap <silent> <buffer> <leader>js :call BeautifyRange()<cr>
+```
+
+`Beautify()` and `BeautifyRange()` will automatically infer the filetype from the current file if not supplied.
+
+`Beautify()` accepts 3 optional arguments:
+- `filetype` - manually specify which filetype to beautify as (defaults to current file extension)
+- `start line` - the starting line number. (defaults to 1)
+- `end line` - the ending line. (defaults to $)
+
+If you want to supply line numbers - you must supply both the starting line number and the ending line number.
+
 ```vim
   ".vimrc
 
@@ -162,7 +183,6 @@ Usage
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
   " for css or scss
   autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
 ```
 
 JsBeautify function takes two parameters, this number of start and end lines by

@@ -1,15 +1,8 @@
 "% Preliminary validation of global variables
 "  and version of the editor.
-
-if v:version < 700
+if exists('g:loaded_Beautifier') || v:version < 700
   finish
 endif
-
-" check whether this script is already loaded
-if exists('g:loaded_Beautifier')
-  finish
-endif
-
 let g:loaded_Beautifier = 1
 
 if !exists('g:config_Beautifier')
@@ -47,13 +40,13 @@ endfun
 " @param {Any} message The warning message
 fun! WarningMsg(message)
   echohl WarningMsg
-  echo string(a:message)
+  echo 'beautifier.vim - '.string(a:message)
 endfun
 
 " Output error message
 " @param {Any} message The error message
 fun! ErrorMsg(message)
-  echoerr string(a:message)
+  echoerr 'beautifier.vim - '.string(a:message)
 endfun
 
 " Check type of files
@@ -62,11 +55,9 @@ endfun
 "
 " @return {Boolean} Is the type in list of allowed types
 func! s:isAllowedType(type, ...)
-  let haz = 1
   let type = a:type
   let allowedTypes = get(a:000, 1, s:supportedFileTypes)
-
-  return index(allowedTypes, type) != -1
+  return index(allowedTypes, type) > -1
 endfun
 
 " Quoting string
@@ -114,7 +105,7 @@ func! s:processingEditconfigFile(content)
     endif
 
     " line with declaration [**.type]
-    " we shoul skip.
+    " we should skip.
     let index = index + 1
     let line = get(content, index)
 
@@ -136,7 +127,7 @@ func! s:processingEditconfigFile(content)
       " special comment should look like
       " ';vim:key=value:second=value'
       if strpart(line, 0, 1) == ';'
-        " if it's special comment then procesisng
+        " if it's special comment then processing
         " it separate and continue processing
         let l:copts = split(strpart(line, 5), ':')
 
@@ -170,12 +161,12 @@ function s:treatConfig(config)
   let config = a:config
 
   if has_key(config, 'indent_style')
-    if config["indent_style"] == 'space'
-      let config["indent_char"] = ' '
-    elseif config["indent_style"] == 'tab'
-      let config["indent_char"] = '\t'
+    if config['indent_style'] == 'space'
+      let config['indent_char'] = ' '
+    elseif config['indent_style'] == 'tab'
+      let config['indent_char'] = '\t'
       " When the indent_char is tab, we always want to use 1 tab
-      let config["indent_size"] = 1
+      let config['indent_size'] = 1
     endif
   endif
 
@@ -187,7 +178,7 @@ endfunction
 " конфигурации
 "
 " param {Dict} value The configuration object.
-" return {Dict} Return copy of configuration obect with link on
+" return {Dict} Return copy of configuration object with link on
 " old config or empty object.
 function s:updateConfig(value)
   if empty(a:value)
@@ -224,90 +215,6 @@ func s:getPathByType(type)
   return path
 endfunc
 
-
-
-" Helper functions for restoring mark and cursor position
-function! s:getNumberOfNonSpaceCharactersFromTheStartOfFile(position)
-  let cursorRow = a:position.line
-  let cursorColumn = a:position.column
-  let lineNumber = 1
-  let nonBlankCount = 0
-  while lineNumber <= cursorRow
-    let lineContent = getline(lineNumber)
-    if lineNumber == cursorRow
-      let lineContent = strpart(lineContent,0,cursorColumn)
-    endif
-    let charIndex = 0
-    while charIndex < len(lineContent)
-      let char = strpart(lineContent,charIndex,1)
-      if match(char,'\s\|\n\|\r') == -1
-        let nonBlankCount = nonBlankCount + 1
-      endif
-      let charIndex = charIndex + 1
-    endwhile
-    "echo nonBlankCount
-    let lineNumber = lineNumber + 1
-  endwhile
-  return nonBlankCount
-endfunction
-
-
-
-"Converts number of non blank characters to cursor position (line and column)
-function! s:getCursorPosition(numberOfNonBlankCharactersFromTheStartOfFile)
-  let lineNumber = 1
-  let nonBlankCount = 0
-  while lineNumber <= line('$')
-    let lineContent = getline(lineNumber)
-    let charIndex = 0
-    while charIndex < len(lineContent)
-      let char = strpart(lineContent,charIndex,1)
-      if match(char,'\s\|\n\|\r') == -1
-        let nonBlankCount = nonBlankCount + 1
-      endif
-      let charIndex = charIndex + 1
-      if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile 
-        "Found position!
-        return {'line': lineNumber,'column': charIndex}
-      end
-    endwhile
-    let lineNumber = lineNumber + 1
-  endwhile
-
-  "Oops, nothing found!
-  return {}
-endfunction
-
-
-
-"Restoring current position by number of non blank characters
-function! s:setNumberOfNonSpaceCharactersBeforeCursor(mark,numberOfNonBlankCharactersFromTheStartOfFile)
-  let location = s:getCursorPosition(a:numberOfNonBlankCharactersFromTheStartOfFile)
-
-  if !empty(location)
-      call setpos(a:mark, [0, location.line, location.column, 0])
-  endif
-endfunction
-
-
-
-function! s:getCursorAndMarksPositions()
-  let localMarks = map(range(char2nr('a'), char2nr('z'))," \"'\".nr2char(v:val) ") 
-  let marks = ['.'] + localMarks
-  let result = {}
-  for positionType in marks
-    let cursorPositionAsList = getpos(positionType)
-    let cursorPosition = {'buffer': cursorPositionAsList[0], 'line': cursorPositionAsList[1], 'column': cursorPositionAsList[2]}
-    if cursorPosition.buffer == 0 && cursorPosition.line > 0
-      let result[positionType] = cursorPosition
-    endif
-  endfor
-  return result
-endfunction
-
-
-
-
 "% Declaring global variables and functions
 
 " Apply settings from 'editorconfig' file to beautifier.
@@ -316,25 +223,24 @@ endfunction
 function BeautifierApplyConfig(...)
 
   " Получаем путь который нам передали
-  let l:filepath = get(a:000, 0)
+  let filepath = get(a:000, 0)
 
   " Проходимся по дефолтным путям только если
   " оказалось что нам не передали путь
   "
   " Если нам передали путь то не стоит его
   " тут проверять на сушествование
-  if empty(l:filepath)
-    let l:filepath = get(filter(copy(s:paths_Editorconfig),'filereadable(v:val)'), 0)
+  if empty(filepath)
+    let filepath = get(filter(copy(s:paths_Editorconfig),'filereadable(v:val)'), 0)
   endif
 
-  if !filereadable(l:filepath)
+  if !filereadable(filepath)
     " File doesn't exist then return '1'
     call WarningMsg('Can not find global .editorconfig file!')
     return 1
   endif
 
-
-  let l:content = readfile(l:filepath)
+  let l:content = readfile(filepath)
 
   " Process .editorconfig file
   let opts = s:processingEditconfigFile(l:content)
@@ -346,6 +252,41 @@ function BeautifierApplyConfig(...)
   return 0
 endfunction
 
+function! s:isSupportedType(type, config)
+  let typeConfig = get(a:config, a:type, {})
+  return s:isAllowedType(a:type, get(typeConfig, 'extensions'))
+endfunction
+
+function! s:getFiletype(type, config)
+  let type = a:type
+  let config = a:config
+
+  " try to get configuration from &filetype
+  if type == 0 || type == '' || !has_key(config, type)
+    let type = &filetype
+  elseif !s:isSupportedType(type, config)
+    return ['File type '.type.' is unsupported by beautify']
+  else
+    return ['', type]
+  endif
+
+  " try to get configuration from file extension
+  if type == '' || !has_key(config, type)
+    let type = expand('%:e')
+  elseif !s:isSupportedType(type, config)
+    return ['File type '.type.' is unsupported by beautify']
+  else
+    return ['', type]
+  endif
+
+  if type == ''
+    return ['Unknown file type']
+  elseif !has_key(config, type) || !s:isSupportedType(type, config)
+    return ['File type '.type.' is unsupported by beautify']
+  else
+    return [ '', type]
+  endif
+endfunction
 
 " Common function for beautify
 " @param {String} type The type of file js, css, html
@@ -354,35 +295,32 @@ endfunction
 " @param {[String]} line2 The end line on which stop formating,
 " by default '$'
 func! Beautifier(...)
-  let cursorPositions = s:getCursorAndMarksPositions()
-  call map(cursorPositions, " extend (v:val,{'characters': s:getNumberOfNonSpaceCharactersFromTheStartOfFile(v:val)}) ")
+  let s:view = winsaveview()
+
   if !exists('b:config_Beautifier')
     call s:updateConfig(g:config_Beautifier)
   endif
 
-  " Define type of file
-  let type = get(a:000, 0, expand('%:e'))
-  let allowedTypes = get(b:config_Beautifier[type], 'extensions')
-
-  if !s:isAllowedType(type, allowedTypes)
-    call WarningMsg('File type is not allowed!')
+  let validation = s:getFiletype(get(a:000, 0), b:config_Beautifier)
+  if validation[0] != ''
+    call WarningMsg(validation[0])
     return 1
   endif
 
+  let type = validation[1]
+  let opts = get(b:config_Beautifier, type)
   let line1 = get(a:000, 1, '1')
   let line2 = get(a:000, 2, '$')
 
-  let opts = b:config_Beautifier[type]
   let path = get(opts, 'path', s:getPathByType(type))
-  let path = expand(path)
-  let path = fnameescape(path)
+  let path = fnameescape(expand(path))
   " Get external engine which will
   " be execute javascript file
   " by default get nodejs
   let engine = get(opts, 'bin', 'nodejs')
   " nodejs may be called node
   if !executable(engine)
-      let engine = get(opts, 'bin', 'node')
+    let engine = get(opts, 'bin', 'node')
   endif
 
   " Get content from the files
@@ -412,34 +350,27 @@ func! Beautifier(...)
 
   " issue 42
   if !len(lines_Beautify)
-      return result
+    return result
   endif
 
   silent exec line1.",".line2."j"
   call setline(line1, lines_Beautify[0])
   call append(line1, lines_Beautify[1:])
 
-  for [key,value] in items(cursorPositions)
-    call s:setNumberOfNonSpaceCharactersBeforeCursor(key,value.characters)
-  endfor
+  call winrestview(s:view)
   return result
 endfun
 
 " editorconfig hook
-" Intergration with editorconfig.
+" Integration with editorconfig.
 " https://github.com/editorconfig/editorconfig-vim.git
 func! BeautifierEditorconfigHook(config)
   let type = expand('%:e')
   let config = a:config
 
-  if !(type(config) == 4)
+  if type(config) != type({}) || !s:isAllowedType(type)
     return 1
   endif
-
-  if !s:isAllowedType(type)
-    return 1
-  endif
-
 
   " If buffer config variable does not exist
   " then let it
@@ -453,14 +384,40 @@ func! BeautifierEditorconfigHook(config)
   endif
 
   let config = extend(b:config_Beautifier[type], config)
-
   call s:treatConfig(config)
-
   let b:config_Beautifier[type] = config
 
-  " All Ok! retun 0
+  " All Ok! return 0
   return 0
 endfun
+
+" @param [String] [type='%:e'] file extension to beautify as
+fun! BeautifyRange(...) range
+  let type = get(a:000, 0, &filetype)
+  return Beautifier(type, a:firstline, a:lastline)
+endfun
+
+" @param [String] [type='%:e'] file extension to beautify as
+" @param [Number|String] [Start line='1']
+" @param [Number|String] [End line='$']
+fun! Beautify(...)
+  " user specified only lines
+  if len(a:000) == 2
+    " infer extension from file
+    let line1 = get(a:000, 0, '1')
+    let line2 = get(a:000, 1, '$')
+    return Beautifier(&filetype, line1, line2)
+  endif
+
+  " filetype is first param or infer from file itself
+  let type = get(a:000, 0, &filetype)
+  " try to see if line params were passed
+  let line1 = get(a:000, 1, '1')
+  let line2 = get(a:000, 2, '$')
+  return Beautifier(type, line1, line2)
+endfun
+
+" All Range functions can be deprecated.
 
 " @param {[Number|String]} a:0 Default value '1'
 " @param {[Number|String]} a:1 Default value '$'
