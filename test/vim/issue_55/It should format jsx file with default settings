@@ -1,11 +1,6 @@
 #!/bin/bash
 
-TMP_FILE="$(tempfile)"
-
-echo $(cat file) > $TMP_FILE
-
-vim -u vimrc -c "execute 'silent call JsxBeautify()' | w | q | q" $TMP_FILE
-
-RESULT=$(cat $TMP_FILE)
-
-[ "$RESULT" = "$(cat expected)" ]
+TMP_FILE="${TMPDIR:-/tmp/}$(uuidgen)"
+cat file > "$TMP_FILE"
+vim -u vimrc -c "execute 'silent call JsxBeautify()' | w | q" "$TMP_FILE"
+[ "$(cat $TMP_FILE)" = "$(cat expected)" ]

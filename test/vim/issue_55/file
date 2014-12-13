@@ -1,6 +1,3 @@
 (function() {
-    return (
-        <span>
-        </span>
-    );
+return (<span></span>);
 }());

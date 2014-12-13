@@ -5,12 +5,7 @@
 # when we open it in new buffer
 # with default settings
 
-TMP_FILE="$(tempfile)"
-
-echo $(cat file) > $TMP_FILE
-
-vim -u vimrc -c "execute 'bnext' | execute 'silent call JsBeautify()' | w | q | q" cap $TMP_FILE
-
-RESULT=$(cat $TMP_FILE)
-
-[ "$RESULT" = "$(cat expected)" ]
+TMP_FILE="${TMPDIR:-/tmp/}$(uuidgen)"
+cat file > "$TMP_FILE"
+vim -u vimrc -c "execute 'bnext' | execute 'silent call JsBeautify()' | w | q | q" cap "$TMP_FILE"
+[ "$(cat $TMP_FILE)" = "$(cat expected)" ]

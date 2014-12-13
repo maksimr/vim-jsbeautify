@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         urchin: {
-            args: ['-f', 'test']
+            args: ['-f', 'test/vim']
         },
         uglify: {
             options: {
@@ -68,18 +68,14 @@ module.exports = function(grunt) {
 
         util.spawn({
             cmd: './urchin',
-            args: args
+            args: args,
+            opts: {
+                stdio: 'inherit'
+            }
         }, function(err, result) {
             err = err || result.stdout.match(/\n[^0]\d* tests failed/g);
-
-            if (!err) {
-                log.writeln(result);
-                return done(null);
-            }
-
-            // error handling
             log.writeln(result);
-            done(false);
+            done(err);
         });
     });
 
