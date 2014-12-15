@@ -1,9 +1,6 @@
 #!/bin/bash
 
-TMP_FILE="$(tempfile)"
-
-echo $(cat file) > $TMP_FILE
-
-vim -u vimrc -c "execute 'silent call JsBeautify()' | w | q | q" $TMP_FILE
-
+TMP_FILE="$TMPDIR/$(uuidgen)"
+cat file > "$TMP_FILE"
+vim -u vimrc -c "execute 'silent call JsBeautify()' | w | q | q" "$TMP_FILE"
 test $? -eq 0
