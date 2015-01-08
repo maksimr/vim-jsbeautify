@@ -49,7 +49,7 @@ Simply add a line to your `.vimrc`.
 
 ```vim
 
-  Bundle 'maksimr/vim-jsbeautify'
+  Plugin 'maksimr/vim-jsbeautify'
 
 ```
 
@@ -57,15 +57,15 @@ You'd better add another line in your `.vimrc` to use js-beautify.
 
 ```vim
 
-    Bundle 'einars/js-beautify'
+    Plugin 'einars/js-beautify'
     
 ```
 
-Call `BundleInstall()` inside vim:
+Call `PluginInstall()` inside vim:
 
 ```vim
 
-    :BundleInstall
+    :PluginInstall
 
 ```
 
