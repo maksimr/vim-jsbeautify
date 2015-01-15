@@ -39,6 +39,7 @@
 
     has.add('host-node', global.process && /node(\.exe||js)?$/.test(global.process.execPath));
     has.add('host-v8', isFunction(global.load) && isFunction(global.read));
+    has.add('host-iojs', global.process && /iojs(\.exe)?$/.test(global.process.execPath));
 
     if (has('host-v8')) {
         print = global.write;
@@ -49,7 +50,7 @@
         global.rootPtah = path.replace(/[\w-.]+.js$/,'');
     }
 
-    if (has('host-node')) {
+    if (has('host-node') || has('host-iojs')) {
         (function() {
             var fs = require('fs');
 
