@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# issue_81
+# insert_final_newline doesn't work
+
+TMP_FILE="$(tempfile)"
+
+echo $(cat file) > $TMP_FILE
+
+vim -u vimrc -c "execute 'silent call JsBeautify()' | w | q | q" $TMP_FILE
+
+RESULT=$(cat $TMP_FILE)
+
+test ! "$(diff $TMP_FILE expected)"

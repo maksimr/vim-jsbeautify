@@ -1,0 +1,8 @@
+(function (global) {
+  var $ = global.jQuery;
+  if (!$) {
+    return ['some', 'content'];
+  }
+  $('.class').addClass('myclass').removeClass('deleted');
+}(this));
+

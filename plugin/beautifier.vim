@@ -179,6 +179,10 @@ function s:treatConfig(config)
     endif
   endif
 
+  if has_key(config, 'insert_final_newline')
+      let config["end_with_newline"] = config["insert_final_newline"]
+  endif
+
   return config
 endfunction
 
@@ -413,6 +417,15 @@ func! Beautifier(...)
   " issue 42
   if !len(lines_Beautify)
       return result
+  endif
+
+  " TODO(maksimrv): Find better solution for splitting result on lines
+  " NOTE(maksimrv): This is need because if result contain newline in the end of file
+  " then split simple remove last line
+  if has_key(opts, 'end_with_newline')
+      if opts["end_with_newline"] == 'true'
+          let lines_Beautify =  lines_Beautify + ['']
+      endif
   endif
 
   silent exec line1.",".line2."j"
