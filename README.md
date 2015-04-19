@@ -101,6 +101,11 @@ A simple example of the `.editorconfig` file:
   [**.js]
   indent_style = space
   indent_size = 4
+  
+  [**.jsx]
+  e4x = true
+  indent_style = space
+  indent_size = 4
 
   [**.css]
   indent_style = space
