@@ -404,7 +404,13 @@ func! Beautifier(...)
   let path_Beautifier_arg = s:quote(path)
   let tmp_file_Beautifier_arg = s:quote(g:tmp_file_Beautifier)
 
-  if executable(engine)
+  if has("win32unix")  && executable("cygpath")
+    let beautify_absolute_path_windows = fnameescape(system("cygpath -w ".s:plugin_Root_directory."/beautify.js"))
+    let tmp_file_Beautifier_arg_windows = fnameescape(system("cygpath -w ".tmp_file_Beautifier_arg))
+    let path_Beautifier_arg_windows = fnameescape(system("cygpath -w ".path_Beautifier_arg))
+
+    let result = system(engine." ".beautify_absolute_path_windows." --js_arguments ".tmp_file_Beautifier_arg_windows." ".opts_Beautifier_arg." ".path_Beautifier_arg_windows)
+  elseif executable(engine)
     let result = system(engine." ".fnameescape(s:plugin_Root_directory."/beautify.min.js")." --js_arguments ".tmp_file_Beautifier_arg." ".opts_Beautifier_arg." ".path_Beautifier_arg)
   else
     " Executable bin doesn't exist
