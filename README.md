@@ -1,9 +1,8 @@
-vim-jsbeautify - v1.1.1 - 2012-12-27
----------------------------------------------------
+## vim-jsbeautify - v1.1.1 - 2012-12-27
+
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
-Description
-------------
+## Description
 
 This extension allows you to use [jsbeautifier] (http://jsbeautifier.org/)
 inside vim to quickly format javascript, html and css files.
@@ -11,10 +10,10 @@ Version 1.0 also supports the [editorconfig] (http://editorconfig.org/) file.
 
 Any comments, corrections and suggestions are welcome.
 
-Installation
-------------
+## Installation
 
 ### Dependencies
+
 To use this extension you need to install a javascript interpreter:
 [nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
 
@@ -73,8 +72,7 @@ Also need to be installed after the expansion, go to its folder
 and perform `git submodule update --init --recursive` or specify
 when you set up the path to the external file format (shown below).
 
-Settings
--------------
+## Settings
 
 In version 1.0, all configuration is done through the `.editorconfig` file.
 This file can be located either in the user home directory `~/.editorconfig`,
@@ -153,8 +151,7 @@ and special properties for the jsbeautify plugin like ```path```, ```bin```
 
 ```
 
-Usage
--------------
+## Usage
 
 ```vim
   ".vimrc
@@ -186,7 +183,8 @@ Example of binding a function for js, html and css in visual mode on <ctrl-f>
 
 
 ## Running tests
-Tests are written in [Urchin](http://www.urchin.sh) for vim files and built using [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
+
+Tests are written in [Urchin](https://github.com/tlevine/urchin) for vim files and built using [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
 Note that all the commands bellow you should run from the plugin directory.
 
 Run vim tests with urchin:
