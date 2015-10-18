@@ -86,22 +86,6 @@
                     test.done();
                 });
             },
-            'HtmlBeautify() adding extra newline (issue 36)': function(test) {
-                var contentPath = 'test/javascript/templates/issue_36.html',
-                    command = this.command;
-
-                test.expect(1);
-                command = print(command, conf.plugin, contentPath, {}, conf.beautify.html_path);
-
-                /**
-                 * Should simple format file.
-                 */
-                system(command, function(err, stdout, stderr) {
-                    stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n\n', 'should save additional newline.');
-                    test.done();
-                });
-            },
             'beautify CSS': function(test) {
                 var contentPath = 'test/javascript/templates/test.css',
                     command = this.command;
