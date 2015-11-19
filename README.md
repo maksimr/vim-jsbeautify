@@ -80,7 +80,7 @@ or in inside the vim configuration directory `~/.vim/.editorconfig`.
 
 To assign a custom path for the `.editorconfig` file set the variable `g:editorconfig_Beautifier`.
 
-Settings are taken from sections `[**. js]`, `[**. css]` and `[**. html]`. Within these
+Settings are taken from sections `[**.js]`, `[**.json]`, `[**.jsx]`, `[**.html]`, and `[**.css]`. Within these
 sections can use a special comment `; vim:`, but this comment
 can be used only for the global settings.
 
@@ -99,7 +99,11 @@ A simple example of the `.editorconfig` file:
   [**.js]
   indent_style = space
   indent_size = 4
-  
+
+  [**.json]
+  indent_style = space
+  indent_size = 4
+
   [**.jsx]
   e4x = true
   indent_style = space
@@ -114,7 +118,6 @@ A simple example of the `.editorconfig` file:
   indent_size = 4
   max_char = 78
   brace_style = expand
-
 ```
 
 The `.editorconfig` file uses special comments (```;vim:```)
@@ -159,6 +162,10 @@ and special properties for the jsbeautify plugin like ```path```, ```bin```
   map <c-f> :call JsBeautify()<cr>
   " or
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+  " for json 
+  autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+  " for jsx 
+  autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
   " for html
   autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
   " for css or scss
@@ -170,13 +177,15 @@ JsBeautify function takes two parameters: the starting line number and the endin
 default these parameters are set to `0` and `$`.
 
 If you want to beautify only selected lines you should use functions
-**RangeJsBeautify**, **RangeCSSBeautify**, **RangeHtmlBeautify**.
+**RangeJsBeautify**, **RangeJsonBeautify**, **RangeJsxBeautify**, **RangeHtmlBeautify**, or **RangeCSSBeautify**.
 
 Example of binding a function for js, html and css in visual mode on <ctrl-f>
 
 ```vim
   ".vimrc
   autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+  autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+  autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
   autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
   autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 ```
