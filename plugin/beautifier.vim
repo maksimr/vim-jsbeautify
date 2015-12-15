@@ -5,10 +5,10 @@ if v:version < 700
   finish
 endif
 
-" check whether this script is already loaded
-if exists('g:loaded_Beautifier')
-  finish
-endif
+" " check whether this script is already loaded
+" if exists('g:loaded_Beautifier')
+"   finish
+" endif
 
 let g:loaded_Beautifier = 1
 
@@ -30,9 +30,25 @@ endif
 " in file plugin/.editorconfig
 let s:supportedFileTypes = ['js', 'css', 'html', 'jsx', 'json']
 
-"% Helper functions and variables
+" code to get cascading dirs
+let abs_path = expand('%:p:h')
+
+let abs_path_parts = split(abs_path, '/')
+let parts_len = len(abs_path_parts)
+let i = parts_len
+let subs = []
+while i > 0
+  let sublist = abs_path_parts[:i-1]
+  let el = '/' . join(sublist, '/') . '/.editorconfig'
+  call add(subs, el)
+  let i -= 1
+endwhile
+
+" Helper functions and variables
 let s:plugin_Root_directory = fnamemodify(expand("<sfile>"), ":h")
-let s:paths_Editorconfig = map(['$HOME/.editorconfig', '$HOME/.vim/.editorconfig', s:plugin_Root_directory.'/.editorconfig'], 'expand(v:val)')
+let s:paths_Editorconfig = map(subs + ['$HOME/.editorconfig', '$HOME/.vim/.editorconfig', s:plugin_Root_directory.'/.editorconfig'], 'expand(v:val)')
+
+
 
 " Function for debugging
 " @param {Any} content Any type which will be converted
@@ -166,7 +182,7 @@ endfun
 "
 " param {Dict} value The configuration object.
 " return {Dict} Return the same configuration object.
-function s:treatConfig(config)
+function! s:treatConfig(config)
   let config = a:config
 
   if has_key(config, 'indent_style')
@@ -193,7 +209,7 @@ endfunction
 " param {Dict} value The configuration object.
 " return {Dict} Return copy of configuration obect with link on
 " old config or empty object.
-function s:updateConfig(value)
+function! s:updateConfig(value)
   if empty(a:value)
     return a:value
   endif
@@ -214,7 +230,7 @@ endfunction
 
 " Get default path
 " @param {String} type Some of the types js, html or css
-func s:getPathByType(type)
+func! s:getPathByType(type)
   let type = a:type
   let rootPtah = s:plugin_Root_directory."/lib/js/lib/"
   let path = rootPtah."beautify.js"
@@ -270,7 +286,7 @@ function! s:getCursorPosition(numberOfNonBlankCharactersFromTheStartOfFile)
         let nonBlankCount = nonBlankCount + 1
       endif
       let charIndex = charIndex + 1
-      if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile 
+      if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile
         "Found position!
         return {'line': lineNumber,'column': charIndex}
       end
@@ -296,7 +312,7 @@ endfunction
 
 
 function! s:getCursorAndMarksPositions()
-  let localMarks = map(range(char2nr('a'), char2nr('z'))," \"'\".nr2char(v:val) ") 
+  let localMarks = map(range(char2nr('a'), char2nr('z'))," \"'\".nr2char(v:val) ")
   let marks = ['.'] + localMarks
   let result = {}
   for positionType in marks
@@ -317,7 +333,7 @@ endfunction
 " Apply settings from 'editorconfig' file to beautifier.
 " @param {String} filepath path to configuration 'editorconfig' file.
 " @return {Number} If apply was success then return '0' else '1'
-function BeautifierApplyConfig(...)
+function! BeautifierApplyConfig(...)
 
   " Получаем путь который нам передали
   let l:filepath = get(a:000, 0)
@@ -360,9 +376,12 @@ endfunction
 func! Beautifier(...)
   let cursorPositions = s:getCursorAndMarksPositions()
   call map(cursorPositions, " extend (v:val,{'characters': s:getNumberOfNonSpaceCharactersFromTheStartOfFile(v:val)}) ")
+
   if !exists('b:config_Beautifier')
     call s:updateConfig(g:config_Beautifier)
   endif
+
+  call s:updateConfig(g:config_Beautifier)
 
   " Define type of file
   let type = get(a:000, 0, expand('%:e'))
@@ -567,3 +586,5 @@ endif
 if empty(g:config_Beautifier)
   call BeautifierApplyConfig(g:editorconfig_Beautifier)
 endif
+
+call BeautifierApplyConfig(g:editorconfig_Beautifier)
