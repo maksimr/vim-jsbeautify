@@ -14,8 +14,9 @@ Any comments, corrections and suggestions are welcome.
 
 ### Dependencies
 
-To use this extension you need to install a javascript interpreter:
-[nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
+* A javascript interpreter: [nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
+* [js-beautify](https://github.com/beautify-web/js-beautify)
+* Optional: [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 
 ### Installing without plugin-manager
 
@@ -23,11 +24,9 @@ Download zip [file] (https://github.com/maksimr/vim-jsbeautify/archive/master.zi
 or clone project. Then copy `plugin` folder from the plugin's directory to your `dot vim (.vim)` folder.
 
 ``` bash
-
 unzip master.zip
 cd vim-jsbeautify-master
 cp -r plugin ~/.vim/
-
 ```
 
 Then download the zip file for [js-beautify](https://github.com/beautify-web/js-beautify) and put it to `.vim/plugin/lib`.
@@ -35,42 +34,25 @@ Then download the zip file for [js-beautify](https://github.com/beautify-web/js-
 ### Installing using pathogen
 
 ```bash
-
-  cd ~/.vim/bundle
-  git clone https://github.com/maksimr/vim-jsbeautify.git
-  cd vim-jsbeautify && git submodule update --init --recursive
-
+cd ~/.vim/bundle
+git clone https://github.com/maksimr/vim-jsbeautify.git
+cd vim-jsbeautify && git submodule update --init --recursive
 ```
 
 ### Installing using vundle
 
-Simply add a line to your `.vimrc`.
-
+1. Add these lines to your `.vimrc`:
 ```vim
-
-  Plugin 'maksimr/vim-jsbeautify'
-
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 ```
 
-You'd better add another line in your `.vimrc` to use js-beautify.
-
+2. Call `PluginInstall()` inside vim:
 ```vim
-
-    Plugin 'einars/js-beautify'
-    
+:PluginInstall
 ```
 
-Call `PluginInstall()` inside vim:
-
-```vim
-
-    :PluginInstall
-
-```
-
-Also need to be installed after the expansion, go to its folder
-and perform `git submodule update --init --recursive` or specify
-when you set up the path to the external file format (shown below).
+3. Update git submodules: `cd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive`
 
 ## Settings
 
@@ -92,32 +74,32 @@ You can also configure a variable ```g: config_Beautifier```(g:config_Beautifier
 A simple example of the `.editorconfig` file:
 
 ```ini
-  ; .editorconfig
+;.editorconfig
 
-  root = true
+root = true
 
-  [**.js]
-  indent_style = space
-  indent_size = 4
+[**.js]
+indent_style = space
+indent_size = 4
 
-  [**.json]
-  indent_style = space
-  indent_size = 4
+[**.json]
+indent_style = space
+indent_size = 4
 
-  [**.jsx]
-  e4x = true
-  indent_style = space
-  indent_size = 4
+[**.jsx]
+e4x = true
+indent_style = space
+indent_size = 4
 
-  [**.css]
-  indent_style = space
-  indent_size = 4
+[**.css]
+indent_style = space
+indent_size = 4
 
-  [**.html]
-  indent_style = space
-  indent_size = 4
-  max_char = 78
-  brace_style = expand
+[**.html]
+indent_style = space
+indent_size = 4
+max_char = 78
+brace_style = expand
 ```
 
 The `.editorconfig` file uses special comments (```;vim:```)
@@ -125,52 +107,49 @@ and special properties for the jsbeautify plugin like ```path```, ```bin```
 
 
 ```ini
-  ; .editorconfig
+;.editorconfig
 
-  root = true
+root = true
 
-  [**.js]
-  ; Path to the external file format
-  ; The default is taken from the lib folder inside the folder extension.
-  path=~/.vim/bundle/js-beautify/js/lib/beautify.js
-  ; Javascript interpreter to be invoked by default 'node'
-  bin=node
-  indent_style = space
-  indent_size = 4
+[**.js]
+; Path to the external file format
+; The default is taken from the lib folder inside the folder extension.
+path=~/.vim/bundle/js-beautify/js/lib/beautify.js
+; Javascript interpreter to be invoked by default 'node'
+bin=node
+indent_style = space
+indent_size = 4
 
-  [**.css]
-  path=~/.vim/bundle/js-beautify/js/lib/beautify-css.js
-  indent_style = space
-  indent_size = 4
+[**.css]
+path=~/.vim/bundle/js-beautify/js/lib/beautify-css.js
+indent_style = space
+indent_size = 4
 
-  [**.html]
-  ; Using special comments
-  ; And such comments or apply only in global configuration
-  ; So it's best to avoid them
-  ;vim:path=~/.vim/bundle/js-beautify/js/lib/beautify-html.js
-  ;vim:max_char=78:brace_style=expand
-  indent_style = space
-  indent_size = 4
-
+[**.html]
+; Using special comments
+; And such comments or apply only in global configuration
+; So it's best to avoid them
+;vim:path=~/.vim/bundle/js-beautify/js/lib/beautify-html.js
+;vim:max_char=78:brace_style=expand
+indent_style = space
+indent_size = 4
 ```
 
 ## Usage
 
 ```vim
-  ".vimrc
-
-  map <c-f> :call JsBeautify()<cr>
-  " or
-  autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-  " for json 
-  autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-  " for jsx 
-  autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-  " for html
-  autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-  " for css or scss
-  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
+".vimrc
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 ```
 
 JsBeautify function takes two parameters: the starting line number and the ending line number. By
@@ -182,14 +161,13 @@ If you want to beautify only selected lines you should use functions
 Example of binding a function for js, html and css in visual mode on <ctrl-f>
 
 ```vim
-  ".vimrc
-  autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-  autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-  autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-  autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-  autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+".vimrc
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 ```
-
 
 ## Running tests
 
