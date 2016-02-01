@@ -216,13 +216,13 @@ endfunction
 " @param {String} type Some of the types js, html or css
 func s:getPathByType(type)
   let type = a:type
-  let rootPtah = s:plugin_Root_directory."/lib/js/lib/"
-  let path = rootPtah."beautify.js"
+  let rootPath = s:plugin_Root_directory."/lib/js/lib/"
+  let path = rootPath."beautify.js"
 
   if type == 'html'
-    let path = rootPtah."beautify-html.js"
+    let path = rootPath."beautify-html.js"
   elseif type == 'css'
-    let path = rootPtah."beautify-css.js"
+    let path = rootPath."beautify-css.js"
   endif
 
   return path
@@ -270,7 +270,7 @@ function! s:getCursorPosition(numberOfNonBlankCharactersFromTheStartOfFile)
         let nonBlankCount = nonBlankCount + 1
       endif
       let charIndex = charIndex + 1
-      if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile 
+      if nonBlankCount == a:numberOfNonBlankCharactersFromTheStartOfFile
         "Found position!
         return {'line': lineNumber,'column': charIndex}
       end
@@ -296,7 +296,7 @@ endfunction
 
 
 function! s:getCursorAndMarksPositions()
-  let localMarks = map(range(char2nr('a'), char2nr('z'))," \"'\".nr2char(v:val) ") 
+  let localMarks = map(range(char2nr('a'), char2nr('z'))," \"'\".nr2char(v:val) ")
   let marks = ['.'] + localMarks
   let result = {}
   for positionType in marks

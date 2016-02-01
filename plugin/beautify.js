@@ -44,10 +44,10 @@
     if (has('host-v8')) {
         print = global.write;
         global.window = global;
-        // get rootPtah
+        // get rootPath
         // Need for html-beautify
         // because it require loading js-beautify and css-beautify
-        global.rootPtah = path.replace(/[\w-.]+.js$/,'');
+        global.rootPath = path.replace(/[\w-.]+.js$/,'');
     }
 
     if (has('host-node') || has('host-iojs')) {
@@ -97,8 +97,8 @@
 
         // XXX
         if (has('host-v8') && global.html_beautify) {
-            load(global.rootPtah+'beautify.js');
-            load(global.rootPtah+'beautify-css.js');
+            load(global.rootPath+'beautify.js');
+            load(global.rootPath+'beautify-css.js');
         }
 
         //FIXME(maksimrv): Hm.... Why?! only for html :|
