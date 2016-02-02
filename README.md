@@ -41,10 +41,9 @@ cd vim-jsbeautify && git submodule update --init --recursive
 
 ### Installing using vundle
 
-1. Add these lines to your `.vimrc`:
+1. Add this line to your `.vimrc`:
 ```vim
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
 ```
 
 2. Call `PluginInstall()` inside vim:
@@ -105,15 +104,13 @@ brace_style = expand
 The `.editorconfig` file uses special comments (```;vim:```)
 and special properties for the jsbeautify plugin like ```path```, ```bin```
 
-
 ```ini
 ;.editorconfig
 
 root = true
 
 [**.js]
-; Path to the external file format
-; The default is taken from the lib folder inside the folder extension.
+; path to optional external js beautifier, default is vim-jsbeautify/plugin/lib
 path=~/.vim/bundle/js-beautify/js/lib/beautify.js
 ; Javascript interpreter to be invoked by default 'node'
 bin=node
