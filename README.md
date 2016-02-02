@@ -48,12 +48,10 @@ cd vim-jsbeautify && git submodule update --init --recursive
 ```vim
 Plugin 'maksimr/vim-jsbeautify'
 ```
-
 2. Call `PluginInstall()` inside vim:
 ```vim
 :PluginInstall
 ```
-
 3. Update git submodules: `cd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive`
 
 ## Settings
