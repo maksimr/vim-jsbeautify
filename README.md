@@ -21,7 +21,7 @@ Any comments, corrections and suggestions are welcome.
 ### Installing without plugin-manager
 
 Download zip [file] (https://github.com/maksimr/vim-jsbeautify/archive/master.zip)
-or clone project. Then copy `plugin` folder from the plugin's directory to your `dot vim (.vim)` folder.
+or clone project. Then copy `plugin` folder from the plugin's directory to your `~/.vim` folder.
 
 ``` bash
 unzip master.zip
@@ -29,7 +29,10 @@ cd vim-jsbeautify-master
 cp -r plugin ~/.vim/
 ```
 
-Then download the zip file for [js-beautify](https://github.com/beautify-web/js-beautify) and put it to `.vim/plugin/lib`.
+Then download the zip file for [js-beautify](https://github.com/beautify-web/js-beautify/archive/master.zip) and place its contents in `~/.vim/plugin/lib/`, ie:
+```bash
+wget https://github.com/beautify-web/js-beautify/archive/master.zip && $ cp -rf js-beautify/ ~/.vim/plugin/lib/
+```
 
 ### Installing using pathogen
 
@@ -41,17 +44,14 @@ cd vim-jsbeautify && git submodule update --init --recursive
 
 ### Installing using vundle
 
-1. Add these lines to your `.vimrc`:
+1. Add this line to your `.vimrc`:
 ```vim
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
 ```
-
 2. Call `PluginInstall()` inside vim:
 ```vim
 :PluginInstall
 ```
-
 3. Update git submodules: `cd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive`
 
 ## Settings
@@ -105,15 +105,13 @@ brace_style = expand
 The `.editorconfig` file uses special comments (```;vim:```)
 and special properties for the jsbeautify plugin like ```path```, ```bin```
 
-
 ```ini
 ;.editorconfig
 
 root = true
 
 [**.js]
-; Path to the external file format
-; The default is taken from the lib folder inside the folder extension.
+; path to optional external js beautifier, default is vim-jsbeautify/plugin/lib
 path=~/.vim/bundle/js-beautify/js/lib/beautify.js
 ; Javascript interpreter to be invoked by default 'node'
 bin=node
