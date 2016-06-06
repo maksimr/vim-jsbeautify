@@ -320,7 +320,7 @@ endfunction
 function BeautifierApplyConfig(...)
 
   " Получаем путь который нам передали
-  let l:filepath = get(a:000, 0)
+  let l:filepath = expand(get(a:000, 0))
 
   " Проходимся по дефолтным путям только если
   " оказалось что нам не передали путь
