@@ -24,14 +24,14 @@ Download zip [file] (https://github.com/maksimr/vim-jsbeautify/archive/master.zi
 or clone project. Then copy `plugin` folder from the plugin's directory to your `~/.vim` folder.
 
 ``` bash
-unzip master.zip
+unzip vim-jsbeautify-master.zip
 cd vim-jsbeautify-master
 cp -r plugin ~/.vim/
 ```
 
 Then download the zip file for [js-beautify](https://github.com/beautify-web/js-beautify/archive/master.zip) and place its contents in `~/.vim/plugin/lib/`, ie:
 ```bash
-wget https://github.com/beautify-web/js-beautify/archive/master.zip && $ cp -rf js-beautify/ ~/.vim/plugin/lib/
+wget https://github.com/beautify-web/js-beautify/archive/master.zip && unzip master.zip && cp -rf js-beautify-master/ ~/.vim/plugin/lib/
 ```
 
 ### Installing using pathogen
