@@ -1,4 +1,4 @@
-## vim-jsbeautify - v1.1.1 - 2012-12-27
+## vim-jsbeautify - v1.1.2 - 2016-06-05
 
 [![Build Status](https://secure.travis-ci.org/maksimr/vim-jsbeautify.png)](http://travis-ci.org/maksimr/vim-jsbeautify)
 
@@ -199,10 +199,13 @@ Thanks for assistance:
 
 ## Versions
 
+v1.1.2
+  + Add support js-beautify v1.6.3
+
 v1.1.1
   + Add support js-beautify v1.3.1
 
 ## License
 
 Licensed MIT
-Copyright (c) 2012 Maksim Ryzhikov;
+Copyright (c) 2016 Maksim Ryzhikov;
