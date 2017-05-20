@@ -32,7 +32,7 @@ let s:supportedFileTypes = ['js', 'css', 'html', 'jsx', 'json']
 
 "% Helper functions and variables
 let s:plugin_Root_directory = fnamemodify(expand("<sfile>"), ":h")
-let s:paths_Editorconfig = map(['$HOME/.editorconfig', '$HOME/.vim/.editorconfig', s:plugin_Root_directory.'/.editorconfig'], 'expand(v:val)')
+let s:paths_Editorconfig = map(['$HOME/.editorconfig', '$HOME/.vim/.editorconfig', '$HOME/.config/nvim/.editorconfig', s:plugin_Root_directory.'/.editorconfig'], 'expand(v:val)')
 
 " Function for debugging
 " @param {Any} content Any type which will be converted
