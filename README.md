@@ -4,9 +4,9 @@
 
 ## Description
 
-This extension allows you to use [jsbeautifier] (http://jsbeautifier.org/)
+This extension allows you to use [jsbeautifier](http://jsbeautifier.org/)
 inside vim to quickly format javascript, html and css files.
-Version 1.0 also supports the [editorconfig] (http://editorconfig.org/) file.
+Version 1.0 also supports the [editorconfig](http://editorconfig.org/) file.
 
 Any comments, corrections and suggestions are welcome.
 
@@ -14,13 +14,13 @@ Any comments, corrections and suggestions are welcome.
 
 ### Dependencies
 
-* A javascript interpreter: [nodejs] (http://nodejs.org/) or [v8] (http://code.google.com/p/v8/).
+* A javascript interpreter: [nodejs](http://nodejs.org/) or [v8](http://code.google.com/p/v8/).
 * [js-beautify](https://github.com/beautify-web/js-beautify)
 * Optional: [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 
 ### Installing without plugin-manager
 
-Download zip [file] (https://github.com/maksimr/vim-jsbeautify/archive/master.zip)
+Download zip [file](https://github.com/maksimr/vim-jsbeautify/archive/master.zip)
 or clone project. Then copy `plugin` folder from the plugin's directory to your `~/.vim` folder.
 
 ``` bash
