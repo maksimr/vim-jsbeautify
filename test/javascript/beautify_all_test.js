@@ -4,7 +4,6 @@
  * test covered:
  *  + node 0.6.18
  *  + node 0.8.1
- *  + v8 3.11.10
  */
 
 (function() {
@@ -98,7 +97,7 @@
                  */
                 system(command, function(err, stdout, stderr) {
                     stdout = err || stderr || stdout;
-                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>\n\n', 'should save additional newline.');
+                    test.equal(stdout, '<div>foo\n    <div></div>\n</div>', 'should save additional newline.');
                     test.done();
                 });
             },
@@ -144,16 +143,6 @@
     exports.node = mixin({
         setUp: function(done) {
             this.command = 'node ${0} --js_arguments ${1} ${2} ${3}';
-            done();
-        }
-    }, testCase);
-
-    /**
-     * Test for v8
-     */
-    exports.v8 = mixin({
-        setUp: function(done) {
-            this.command = 'v8 ${0} --js_arguments ${1} ${2} ${3}';
             done();
         }
     }, testCase);

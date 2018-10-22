@@ -5,19 +5,8 @@ node_js:
 notifications:
   email: false
 before_install:
-  - sudo apt-get install -qq vim subversion
-  - git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-  - export PATH=$(pwd)/depot_tools:"$PATH"
-  - svn checkout http://v8.googlecode.com/svn/trunk/ ./v8 >/dev/null
-  - cd v8
-  - make dependencies >/dev/null
-  - sudo make native
-  - sudo cp out/native/d8 /usr/local/bin/v8
-  - cd ..
-  - sudo rm -rf v8
+  - sudo apt-get install -qq vim
   - '[ "${TRAVIS_NODE_VERSION}" != "0.8"  ] || npm install -g npm@1.4.28'
   - npm install -g npm
-  - npm install -g grunt-cli
   - npm install
-  - sleep 5
 script: npm test
