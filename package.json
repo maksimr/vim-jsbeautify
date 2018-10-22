@@ -15,6 +15,7 @@
     "grunt-contrib-watch": "~0.5.3"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test && rake test",
+    "build": "grunt build"
   }
 }

@@ -6,3 +6,6 @@
 /test/.urchin.log
 /test/vim/.urchin.log
 .viminfo
+.vim-flavor
+Gemfile.lock
+VimFlavor.lock
