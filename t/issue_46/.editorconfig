@@ -1,0 +1,39 @@
+root = true
+
+[**.js]
+;This section describe common
+;javascript settings
+
+max_char=130
+indent_style = space
+indent_size = 2
+
+[**.jsx]
+max_char=130
+e4x = true
+indent_style = space
+indent_size = 2
+
+[**.css]
+max_char=130
+indent_style = space
+indent_size = 2
+
+[**.html]
+indent_style = space
+indent_size = 2
+indent_inner_html=true
+preserve_newlines=true
+wrap-line-length = 0
+
+[*]
+indent_style = space
+end_of_line = lf
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = falsendent_size = 2
