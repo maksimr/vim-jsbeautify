@@ -1,0 +1,6 @@
+root = true
+
+[**.jsx]
+e4x = true
+indent_style = space
+indent_size = 4

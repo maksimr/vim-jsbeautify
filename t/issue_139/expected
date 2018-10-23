@@ -1,0 +1,9 @@
+var foo = function() {
+    return (
+        <div class="foo">
+            <b>
+                A
+            </b>
+        </div>
+    );
+}
