@@ -1,0 +1,6 @@
+root = true
+
+[**.js]
+;vim:brace_style=collapse-preserve-inline
+indent_style = space
+indent_size = 2
