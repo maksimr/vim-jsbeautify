@@ -31,7 +31,7 @@ cp -r plugin ~/.vim/
 
 Then download the zip file for [js-beautify](https://github.com/beautify-web/js-beautify/archive/master.zip) and place its contents in `~/.vim/plugin/lib/`, ie:
 ```bash
-wget https://github.com/beautify-web/js-beautify/archive/master.zip && unzip master.zip && cp -rf js-beautify-master/ ~/.vim/plugin/lib/
+wget https://github.com/beautify-web/js-beautify/archive/v1.8.9.zip && unzip v1.8.9.zip && cp -rf js-beautify-1.8.9/ ~/.vim/plugin/lib/
 ```
 
 ### Installing using pathogen
