@@ -173,25 +173,12 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 ## Running tests
 
-Tests are written in [Urchin](https://github.com/tlevine/urchin) for vim files and built using [Grunt](https://github.com/gruntjs/grunt) test runer for javascript files.
-Note that all the commands bellow you should run from the plugin directory.
+```
+npm install
+bundle install
+npm test
+```
 
-Run vim tests with urchin:
-
-    ./urchin test/vim
-
-(Or put it some other place in your PATH.)
-
-How to run vim and javascript tests with [grunt](https://github.com/gruntjs/grunt):
-
-    npm install -g grunt-cli
-    npm install
-
-    grunt test
-
-Run only javascript tests:
-
-    grunt nodeunit
 
 
 Thanks for assistance:
